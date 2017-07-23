@@ -50,7 +50,7 @@ namespace MentorSystem
 
         private Polyline LineAnnotation;
 
-        /////////////////
+        ///////////////// Variables for the socket communication
         private StreamSocketListener tcpListener;
         private StreamSocket connectedSocket = null;
         private const string port = "8900";
@@ -78,7 +78,22 @@ namespace MentorSystem
             ////////////////////////////////////
         }
 
-        ///////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////// START OF SOCKET CODE
+        /// <summary>
+        /// Callback executed upon a new client's connection request.
+        /// In here, the socket is bind and read to obtain the 
+        /// info that is being transmitted. Although the connection
+        /// is made, the data is not being transmitted correctly to
+        /// the system.
+        /// Things I've noticed:
+        /// 1- Right now, it just puts a blank image as a background.
+        /// Most likely because the new image has not all the information.
+        /// 2- I tried to put the read method in a loop to populate the 
+        /// buffer. However, the condition (bytes read > 0) is laways true,
+        /// which means the stream continuously send info instead on delimiting
+        /// it to "single images" per request.
+        /// 3- I'm not doing any image resizing yet (640x480 to 1920x1080).
+        /// </summary>
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
             if (connectedSocket != null)
@@ -86,31 +101,57 @@ namespace MentorSystem
                 connectedSocket.Dispose();
                 connectedSocket = null;
             }
+            // Obtain the socket that is sending the info
             connectedSocket = args.Socket;
-            Debug.WriteLine("Client has connected");
+            Debug.WriteLine("Client has connected"); // It does connect
 
+            // Get the socket's stream
             Stream streamIn = connectedSocket.InputStream.AsStreamForRead();
-            int maxSize = 3 * 640 * 480;
+
+            // Size of buffer
+            int maxSize = 3 * 640 * 480; //Screen res + 3 channels
+
+            // Buffer to store the stream data into
             byte[] buffer = new byte[maxSize];
+
             //int offset = 0;
             //int bytesRead;
             //do
             //{
-                await streamIn.ReadAsync(buffer, 0, maxSize);
+
+            // Asynchronously read the incoming stream and store it in our buffer. 
+            // Having it in a loop didn't help either
+            await streamIn.ReadAsync(buffer, 0, maxSize);
                 //offset += bytesRead;
             //} while (bytesRead > 0);
             Debug.WriteLine("Left loop");
+
+            // Create a stream that can be used as input for an image
             InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream();
+
+            // Asynchronously copy the read stream into this new stream
             await randomAccessStream.WriteAsync(buffer.AsBuffer());
+
+            // Go to the stream's beginning
             randomAccessStream.Seek(0);
+
+            // Give the control the the UI thread
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
+                // Create a bitmap
                 var bitmap = new BitmapImage();
-                //bitmap.SetSource(memStream.AsRandomAccessStream());
+
+                // Assign the read stream as the bitmap's content
                 bitmap.SetSource(randomAccessStream);
+
+                // Use the created bitmap as the background image's source
                 BackgroundImage.Source = bitmap;
             });
+
+            ///
+            /// Several other attemps.
+            ///
             /*var inputStream = await connectedSocket.InputStream.ReadAsync();
 
 
@@ -125,9 +166,6 @@ namespace MentorSystem
             //IBuffer result = new Windows.Storage.Streams.Buffer(921600);
             //await connectedSocket.InputStream.ReadAsync(result, result.Capacity, InputStreamOptions.Partial);
 
-            ///
-            /// Falta leer async el stream
-            ///
             //var memStream = new MemoryStream();
             //await streamIn.CopyToAsync(memStream);
             //memStream.Position = 0;
@@ -195,7 +233,7 @@ namespace MentorSystem
             await tcpListener.BindEndpointAsync(null, port);
         }
 
-        ///////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
 
 
         private void ThreadExample()
