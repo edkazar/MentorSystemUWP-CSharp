@@ -26,72 +26,72 @@
             <PivotItem Header="Tools">
                 <GridView x:Name="ToolsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage1" Height="75" Width="75" Source="Assets/bvm_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage1" Height="75" Width="75" Source="Assets/bvm.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage2" Height="75" Width="75" Source="Assets/ettube_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage2" Height="75" Width="75" Source="Assets/ettube.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage3" Height="75" Width="75" Source="Assets/hemostat_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage3" Height="75" Width="75" Source="Assets/hemostat.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage4" Height="75" Width="75" Source="Assets/iodineswab_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage4" Height="75" Width="75" Source="Assets/iodineswab.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage5" Height="75" Width="75" Source="Assets/longhook_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage5" Height="75" Width="75" Source="Assets/longhook.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage6" Height="75" Width="75" Source="Assets/retractor_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage6" Height="75" Width="75" Source="Assets/retractor.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage7" Height="75" Width="75" Source="Assets/scalpel_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage7" Height="75" Width="75" Source="Assets/scalpel.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage8" Height="75" Width="75" Source="Assets/scissors_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage8" Height="75" Width="75" Source="Assets/scissors.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage9" Height="75" Width="75" Source="Assets/stethoscope_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage9" Height="75" Width="75" Source="Assets/stethoscope.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage10" Height="75" Width="75" Source="Assets/surgicaltape_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage10" Height="75" Width="75" Source="Assets/surgicaltape.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage11" Height="75" Width="75" Source="Assets/syringe_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage11" Height="75" Width="75" Source="Assets/syringe.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage12" Height="75" Width="75" Source="Assets/tweezers_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage12" Height="75" Width="75" Source="Assets/tweezers.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                 </GridView>
             </PivotItem>
             <PivotItem Header="Hands">
                 <GridView x:Name="HandsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage13" Height="75" Width="75" Source="Assets/hand_palpate_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage13" Height="75" Width="75" Source="Assets/hand_palpate.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage14" Height="75" Width="75" Source="Assets/hand_point_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage14" Height="75" Width="75" Source="Assets/hand_point.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage15" Height="75" Width="75" Source="Assets/hand_stretch_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage15" Height="75" Width="75" Source="Assets/hand_stretch.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                 </GridView>
             </PivotItem>
             <PivotItem Header="Texts">
                 <GridView x:Name="TextsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage16" Height="75" Width="75" Source="Assets/text_close_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage16" Height="75" Width="75" Source="Assets/text_close.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage17" Height="75" Width="75" Source="Assets/text_incision_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage17" Height="75" Width="75" Source="Assets/text_incision.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage18" Height="75" Width="75" Source="Assets/text_palpation_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage18" Height="75" Width="75" Source="Assets/text_palpation.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage19" Height="75" Width="75" Source="Assets/text_remove_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage19" Height="75" Width="75" Source="Assets/text_remove.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:Name="iconPanelImage20" Height="75" Width="75" Source="Assets/text_stitch_shadow.png" Tapped="iconPanelImageTapped"/>
+                        <Image x:Name="iconPanelImage20" Height="75" Width="75" Source="Assets/text_stitch.png" Tapped="iconPanelImageTapped"/>
                     </Border>
                 </GridView>
             </PivotItem>

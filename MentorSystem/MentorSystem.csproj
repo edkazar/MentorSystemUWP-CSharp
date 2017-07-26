@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JSONManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -109,34 +110,34 @@
     <None Include="MentorSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\bvm_shadow.png" />
-    <Content Include="Assets\ettube_shadow.png" />
-    <Content Include="Assets\hand_palpate_shadow.png" />
-    <Content Include="Assets\hand_point_shadow.png" />
-    <Content Include="Assets\hand_stretch_shadow.png" />
-    <Content Include="Assets\hemostat_shadow.png" />
-    <Content Include="Assets\iodineswab_shadow.png" />
-    <Content Include="Assets\longhook_shadow.png" />
+    <Content Include="Assets\bvm.png" />
+    <Content Include="Assets\ettube.png" />
+    <Content Include="Assets\hand_palpate.png" />
+    <Content Include="Assets\hand_point.png" />
+    <Content Include="Assets\hand_stretch.png" />
+    <Content Include="Assets\hemostat.png" />
+    <Content Include="Assets\iodineswab.png" />
+    <Content Include="Assets\longhook.png" />
     <Content Include="Assets\operating_room.jpg" />
-    <Content Include="Assets\retractor_shadow.png" />
-    <Content Include="Assets\scalpel_shadow.png" />
-    <Content Include="Assets\scissors_shadow.png" />
-    <Content Include="Assets\stethoscope_shadow.png" />
+    <Content Include="Assets\retractor.png" />
+    <Content Include="Assets\scalpel.png" />
+    <Content Include="Assets\scissors.png" />
+    <Content Include="Assets\stethoscope.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-125.png" />
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
-    <Content Include="Assets\surgicaltape_shadow.png" />
-    <Content Include="Assets\syringe_shadow.png" />
-    <Content Include="Assets\text_close_shadow.png" />
-    <Content Include="Assets\text_incision_shadow.png" />
-    <Content Include="Assets\text_palpation_shadow.png" />
-    <Content Include="Assets\text_remove_shadow.png" />
-    <Content Include="Assets\text_stitch_shadow.png" />
+    <Content Include="Assets\surgicaltape.png" />
+    <Content Include="Assets\syringe.png" />
+    <Content Include="Assets\text_close.png" />
+    <Content Include="Assets\text_incision.png" />
+    <Content Include="Assets\text_palpation.png" />
+    <Content Include="Assets\text_remove.png" />
+    <Content Include="Assets\text_stitch.png" />
     <Content Include="Assets\trash_bin_closed.png" />
     <Content Include="Assets\trash_bin_open.png" />
-    <Content Include="Assets\tweezers_shadow.png" />
+    <Content Include="Assets\tweezers.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -160,6 +161,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JSON_Files\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -23,6 +23,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
+using Windows.Data.Json;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,14 +32,16 @@ namespace MentorSystem
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>  
+    /// 
+
     public sealed partial class MainPage : Page
     {
         static double PI = 3.14159265358979323846f;
 
         private ControlCenter myController;
 
-        private CommunicationManager myCommunication;
-
+        private CommunicationManager myCommunicationManager;
+        private JSONManager myJsonManager;
 
         private SolidColorBrush redColor;
         private SolidColorBrush greenColor;
@@ -55,11 +58,15 @@ namespace MentorSystem
         private StreamSocket connectedSocket = null;
         private const string port = "8900";
 
+        ///////////////////////
+        
+
         public MainPage()
         {
             this.InitializeComponent();
             myController = new ControlCenter();
-            myCommunication = new CommunicationManager();
+            myCommunicationManager = new CommunicationManager();
+            myJsonManager = new JSONManager();
 
             redColor = new SolidColorBrush(Windows.UI.Colors.Red);
             greenColor = new SolidColorBrush(Windows.UI.Colors.Green);
@@ -74,7 +81,7 @@ namespace MentorSystem
             ColoredRectangle.Holding += HoldingRectangle;
 
             //////////////Threads//////////////
-            //Task t = Task.Run( () => ThreadExample());
+            Task jsonTask = Task.Run( () => JsonThread());
             ////////////////////////////////////
         }
 
@@ -236,15 +243,21 @@ namespace MentorSystem
         ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
 
 
-        private void ThreadExample()
+        private void JsonThread()
         {
-            int ctr = 0;
-            for (ctr = 0; ctr <= 1000000; ctr++)
-            {
-                Debug.WriteLine("Doing iteration {0}", ctr);
-            }
-            Debug.WriteLine("Finished {0} loop iterations",ctr);
+            myJsonManager.constructGeneralJSON();
         }
+
+        //////////////////////////////////////////////////
+        
+
+        private void createJSONable()
+        {
+            //JsonObject 
+        }
+        /// //////////////////////////////////////////////
+        
+
 
         private void imagesPanelTapped(object sender, TappedRoutedEventArgs e)
         {
@@ -264,6 +277,14 @@ namespace MentorSystem
 
                 ResetLineAnnotation();
             }
+
+            List<double> myList = new List<double>();
+            myList.Add(2.0F);
+            myList.Add(3.0F);
+            myList.Add(5.0F);
+            myList.Add(7.0F);
+
+            myJsonManager.createJSONable(2,"CreateAnnotationCommand",myList,null,null,null);
 
             /*if (!myCommunication.Except)
             {
@@ -477,6 +498,9 @@ namespace MentorSystem
             iconImage.ManipulationCompleted += IconImage_ManipulationCompleted;
             iconImage.ManipulationMode = ManipulationModes.Rotate | ManipulationModes.Scale | ManipulationModes.TranslateX | ManipulationModes.TranslateY;
             iconImage.RenderTransform = new CompositeTransform();
+
+            // Retrieve annotation name
+            Debug.WriteLine(RetrieveAnnotationName(iconUri));
         }
 
         private void PreparePointAnnotation(TappedRoutedEventArgs e)
@@ -534,6 +558,14 @@ namespace MentorSystem
             LineAnnotation.ManipulationCompleted += IconImage_ManipulationCompleted;
             LineAnnotation.ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.TranslateY;
             LineAnnotation.RenderTransform = new CompositeTransform();
+        }
+
+        private string RetrieveAnnotationName(Uri iconUri)
+        {
+            string path = iconUri.ToString();
+            string[] parts = path.Split('.');
+            string[] finalParts = parts[0].Split('/');
+            return finalParts.Last();
         }
     }
 }

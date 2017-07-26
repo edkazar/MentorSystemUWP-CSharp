@@ -26,72 +26,72 @@
             <PivotItem Header="Tools">
                 <GridView x:ConnectionId='24' x:Name="ToolsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='36' x:Name="iconPanelImage1" Height="75" Width="75" Source="Assets/bvm_shadow.png"                              />
+                        <Image x:ConnectionId='36' x:Name="iconPanelImage1" Height="75" Width="75" Source="Assets/bvm.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='35' x:Name="iconPanelImage2" Height="75" Width="75" Source="Assets/ettube_shadow.png"                              />
+                        <Image x:ConnectionId='35' x:Name="iconPanelImage2" Height="75" Width="75" Source="Assets/ettube.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='34' x:Name="iconPanelImage3" Height="75" Width="75" Source="Assets/hemostat_shadow.png"                              />
+                        <Image x:ConnectionId='34' x:Name="iconPanelImage3" Height="75" Width="75" Source="Assets/hemostat.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='33' x:Name="iconPanelImage4" Height="75" Width="75" Source="Assets/iodineswab_shadow.png"                              />
+                        <Image x:ConnectionId='33' x:Name="iconPanelImage4" Height="75" Width="75" Source="Assets/iodineswab.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='32' x:Name="iconPanelImage5" Height="75" Width="75" Source="Assets/longhook_shadow.png"                              />
+                        <Image x:ConnectionId='32' x:Name="iconPanelImage5" Height="75" Width="75" Source="Assets/longhook.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='31' x:Name="iconPanelImage6" Height="75" Width="75" Source="Assets/retractor_shadow.png"                              />
+                        <Image x:ConnectionId='31' x:Name="iconPanelImage6" Height="75" Width="75" Source="Assets/retractor.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='30' x:Name="iconPanelImage7" Height="75" Width="75" Source="Assets/scalpel_shadow.png"                              />
+                        <Image x:ConnectionId='30' x:Name="iconPanelImage7" Height="75" Width="75" Source="Assets/scalpel.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='29' x:Name="iconPanelImage8" Height="75" Width="75" Source="Assets/scissors_shadow.png"                              />
+                        <Image x:ConnectionId='29' x:Name="iconPanelImage8" Height="75" Width="75" Source="Assets/scissors.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='28' x:Name="iconPanelImage9" Height="75" Width="75" Source="Assets/stethoscope_shadow.png"                              />
+                        <Image x:ConnectionId='28' x:Name="iconPanelImage9" Height="75" Width="75" Source="Assets/stethoscope.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='27' x:Name="iconPanelImage10" Height="75" Width="75" Source="Assets/surgicaltape_shadow.png"                              />
+                        <Image x:ConnectionId='27' x:Name="iconPanelImage10" Height="75" Width="75" Source="Assets/surgicaltape.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='26' x:Name="iconPanelImage11" Height="75" Width="75" Source="Assets/syringe_shadow.png"                              />
+                        <Image x:ConnectionId='26' x:Name="iconPanelImage11" Height="75" Width="75" Source="Assets/syringe.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='25' x:Name="iconPanelImage12" Height="75" Width="75" Source="Assets/tweezers_shadow.png"                              />
+                        <Image x:ConnectionId='25' x:Name="iconPanelImage12" Height="75" Width="75" Source="Assets/tweezers.png"                              />
                     </Border>
                 </GridView>
             </PivotItem>
             <PivotItem Header="Hands">
                 <GridView x:ConnectionId='20' x:Name="HandsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='23' x:Name="iconPanelImage13" Height="75" Width="75" Source="Assets/hand_palpate_shadow.png"                              />
+                        <Image x:ConnectionId='23' x:Name="iconPanelImage13" Height="75" Width="75" Source="Assets/hand_palpate.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='22' x:Name="iconPanelImage14" Height="75" Width="75" Source="Assets/hand_point_shadow.png"                              />
+                        <Image x:ConnectionId='22' x:Name="iconPanelImage14" Height="75" Width="75" Source="Assets/hand_point.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='21' x:Name="iconPanelImage15" Height="75" Width="75" Source="Assets/hand_stretch_shadow.png"                              />
+                        <Image x:ConnectionId='21' x:Name="iconPanelImage15" Height="75" Width="75" Source="Assets/hand_stretch.png"                              />
                     </Border>
                 </GridView>
             </PivotItem>
             <PivotItem Header="Texts">
                 <GridView x:ConnectionId='14' x:Name="TextsPanel">
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='19' x:Name="iconPanelImage16" Height="75" Width="75" Source="Assets/text_close_shadow.png"                              />
+                        <Image x:ConnectionId='19' x:Name="iconPanelImage16" Height="75" Width="75" Source="Assets/text_close.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='18' x:Name="iconPanelImage17" Height="75" Width="75" Source="Assets/text_incision_shadow.png"                              />
+                        <Image x:ConnectionId='18' x:Name="iconPanelImage17" Height="75" Width="75" Source="Assets/text_incision.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='17' x:Name="iconPanelImage18" Height="75" Width="75" Source="Assets/text_palpation_shadow.png"                              />
+                        <Image x:ConnectionId='17' x:Name="iconPanelImage18" Height="75" Width="75" Source="Assets/text_palpation.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='16' x:Name="iconPanelImage19" Height="75" Width="75" Source="Assets/text_remove_shadow.png"                              />
+                        <Image x:ConnectionId='16' x:Name="iconPanelImage19" Height="75" Width="75" Source="Assets/text_remove.png"                              />
                     </Border>
                     <Border BorderBrush="LightGray" BorderThickness="3">
-                        <Image x:ConnectionId='15' x:Name="iconPanelImage20" Height="75" Width="75" Source="Assets/text_stitch_shadow.png"                              />
+                        <Image x:ConnectionId='15' x:Name="iconPanelImage20" Height="75" Width="75" Source="Assets/text_stitch.png"                              />
                     </Border>
                 </GridView>
             </PivotItem>
