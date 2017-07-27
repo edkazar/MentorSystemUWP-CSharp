@@ -39,7 +39,6 @@ namespace MentorSystem
         static double PI = 3.14159265358979323846f;
 
         private ControlCenter myController;
-
         private CommunicationManager myCommunicationManager;
         private JSONManager myJsonManager;
 
@@ -47,11 +46,11 @@ namespace MentorSystem
         private SolidColorBrush greenColor;
         private SolidColorBrush tealColor;
         private SolidColorBrush goldColor;
-
         private SolidColorBrush buttonCheckedColor;
         private SolidColorBrush buttonUncheckedColor;
 
         private Polyline LineAnnotation;
+        private int AnnotationCounter;
 
         ///////////////// Variables for the socket communication
         private StreamSocketListener tcpListener;
@@ -74,6 +73,7 @@ namespace MentorSystem
             goldColor = new SolidColorBrush(Windows.UI.Colors.Gold);
             CreateButtonsColor();
 
+            AnnotationCounter = 0;
             ResetLineAnnotation();
 
             ColoredRectangle.PointerEntered += EnteringRectangle;
@@ -108,6 +108,59 @@ namespace MentorSystem
                 connectedSocket.Dispose();
                 connectedSocket = null;
             }
+
+            DataReader reader = new DataReader(args.Socket.InputStream);
+            try
+            {
+                while (true)
+                {
+                    // Read first 4 bytes (length of the subsequent string).
+                    uint sizeFieldCount = await reader.LoadAsync(921600);
+                    Debug.WriteLine("Size: {0}", sizeFieldCount.ToString());
+                    if (sizeFieldCount != 921600)
+                    {
+                        // The underlying socket was closed before we were able to read the whole data.
+                        continue;
+                    }
+                    Debug.WriteLine("Im here again");
+
+                    // Read the string.
+                    /*uint stringLength = reader.ReadUInt32();
+                    uint actualStringLength = await reader.LoadAsync(stringLength);
+                    if (stringLength != actualStringLength)
+                    {
+                        // The underlying socket was closed before we were able to read the whole data.
+                        return;
+                    }*/
+
+                    // Display the string on the screen. The event is invoked on a non-UI thread, so we need to marshal
+                    // the text back to the UI thread.
+                    //NotifyUserFromAsyncThread(
+                     //   String.Format("Received data: \"{0}\"", reader.ReadString(actualStringLength)),
+                     //   NotifyType.StatusMessage);
+                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                   () =>
+                   {
+                        // Create a bitmap
+                        greetingOutput.Text = String.Format("Received data: \"{0}\"", reader.ReadString(921600));
+                   });
+                }
+            }
+            catch (Exception exception)
+            {
+                // If this is an unknown status it means that the error is fatal and retry will likely fail.
+                /*if (SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
+                {
+                    throw;
+                }
+
+                NotifyUserFromAsyncThread(
+                    "Read stream failed with error: " + exception.Message,
+                    NotifyType.ErrorMessage);*/
+            }
+
+/////////////////////////////////////////////////////////
+/*
             // Obtain the socket that is sending the info
             connectedSocket = args.Socket;
             Debug.WriteLine("Client has connected"); // It does connect
@@ -154,7 +207,7 @@ namespace MentorSystem
 
                 // Use the created bitmap as the background image's source
                 BackgroundImage.Source = bitmap;
-            });
+            });*/
 
             ///
             /// Several other attemps.
@@ -273,18 +326,29 @@ namespace MentorSystem
             else if (buttonPoints.IsChecked.Value)
             {
                 PreparePointAnnotation(e);
-                drawingPanel.Children.Add(LineAnnotation);             
-
+                LineAnnotation.Name = AnnotationCounter.ToString();
+                drawingPanel.Children.Add(LineAnnotation);
+                
                 ResetLineAnnotation();
+                AnnotationCounter++;
             }
 
-            List<double> myList = new List<double>();
+            /*List<double> myList = new List<double>();
             myList.Add(2.0F);
             myList.Add(3.0F);
             myList.Add(5.0F);
             myList.Add(7.0F);
+            myJsonManager.createJSONable(2,"CreateAnnotationCommand",myList,null,null);
 
-            myJsonManager.createJSONable(2,"CreateAnnotationCommand",myList,null,null,null);
+            List<double> myList = new List<double>();
+            myList.Add(2.0F);
+            myList.Add(3.0F);
+            myList.Add(0.65F);
+            myList.Add(0.02F);
+            myJsonManager.createJSONable(1, "UpdateAnnotationCommand", null, "stethoscope", myList);
+
+            myJsonManager.createJSONable(3, "DeleteAnnotationCommand", null, null, null);*/
+
 
             /*if (!myCommunication.Except)
             {
@@ -315,9 +379,11 @@ namespace MentorSystem
         {
             if (buttonLines.IsChecked.Value)
             {
+                LineAnnotation.Name = AnnotationCounter.ToString();
                 drawingPanel.Children.Add(LineAnnotation);
 
                 ResetLineAnnotation();
+                AnnotationCounter++;
             }
         }
 
@@ -489,6 +555,7 @@ namespace MentorSystem
             iconImage.Width = 150; iconImage.Height = 150;
             iconImage.HorizontalAlignment = HorizontalAlignment.Left;
             iconImage.VerticalAlignment = VerticalAlignment.Top;
+            iconImage.Name = AnnotationCounter.ToString();
             imagesPanel.Children.Add(iconImage);
             iconImage.Margin = new Thickness(tappedPosition.X, tappedPosition.Y, 0, 0);
 
@@ -501,6 +568,7 @@ namespace MentorSystem
 
             // Retrieve annotation name
             Debug.WriteLine(RetrieveAnnotationName(iconUri));
+            AnnotationCounter++;
         }
 
         private void PreparePointAnnotation(TappedRoutedEventArgs e)
@@ -564,7 +632,7 @@ namespace MentorSystem
         {
             string path = iconUri.ToString();
             string[] parts = path.Split('.');
-            string[] finalParts = parts[0].Split('/');
+            string[] finalParts = parts.First().Split('/');
             return finalParts.Last();
         }
     }
