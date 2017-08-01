@@ -23,7 +23,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
-using Windows.Data.Json;
+using Windows.Storage;
+using Windows.Graphics.Imaging;
+using System.Text;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -85,206 +87,75 @@ namespace MentorSystem
             ////////////////////////////////////
         }
 
-        ////////////////////////////////////////////////////////////////////// START OF SOCKET CODE
-        /// <summary>
-        /// Callback executed upon a new client's connection request.
-        /// In here, the socket is bind and read to obtain the 
-        /// info that is being transmitted. Although the connection
-        /// is made, the data is not being transmitted correctly to
-        /// the system.
-        /// Things I've noticed:
-        /// 1- Right now, it just puts a blank image as a background.
-        /// Most likely because the new image has not all the information.
-        /// 2- I tried to put the read method in a loop to populate the 
-        /// buffer. However, the condition (bytes read > 0) is laways true,
-        /// which means the stream continuously send info instead on delimiting
-        /// it to "single images" per request.
-        /// 3- I'm not doing any image resizing yet (640x480 to 1920x1080).
-        /// </summary>
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            if (connectedSocket != null)
-            {
-                connectedSocket.Dispose();
-                connectedSocket = null;
-            }
-
+            Debug.WriteLine("Got Connected");
             DataReader reader = new DataReader(args.Socket.InputStream);
+            uint tabletResX = 640;
+            uint tabletResY = 400;
+            uint orgNumChan = 3;
+            uint targetNumChan = 4;
+            uint orgRes = tabletResX * tabletResY * orgNumChan;
+            uint targetRes = tabletResX * tabletResY * targetNumChan;
+            byte[] myInfo = new byte[orgRes];
+
             try
             {
                 while (true)
                 {
                     // Read first 4 bytes (length of the subsequent string).
-                    uint sizeFieldCount = await reader.LoadAsync(921600);
-                    Debug.WriteLine("Size: {0}", sizeFieldCount.ToString());
-                    if (sizeFieldCount != 921600)
-                    {
-                        // The underlying socket was closed before we were able to read the whole data.
-                        continue;
-                    }
-                    Debug.WriteLine("Im here again");
-
-                    // Read the string.
-                    /*uint stringLength = reader.ReadUInt32();
-                    uint actualStringLength = await reader.LoadAsync(stringLength);
-                    if (stringLength != actualStringLength)
+                    uint sizeFieldCount = await reader.LoadAsync(sizeof(byte) * orgRes);
+                    if (sizeFieldCount != sizeof(byte) * orgRes)
                     {
                         // The underlying socket was closed before we were able to read the whole data.
                         return;
-                    }*/
+                    }
+                    // Read the string.
+                    reader.ReadBytes(myInfo);
+
+                    byte[] newBytes = new byte[targetRes];
+                    int position = 0;
+                    for (int thiss = 0; thiss < orgRes;)
+                    {
+                        newBytes[position] = myInfo[thiss];
+                        newBytes[position + 1] = myInfo[thiss + 1];
+                        newBytes[position + 2] = myInfo[thiss + 2];
+                        newBytes[position + 3] = 0;
+                        position += 4;
+                        thiss += 3;
+                    }
 
                     // Display the string on the screen. The event is invoked on a non-UI thread, so we need to marshal
                     // the text back to the UI thread.
-                    //NotifyUserFromAsyncThread(
-                     //   String.Format("Received data: \"{0}\"", reader.ReadString(actualStringLength)),
-                     //   NotifyType.StatusMessage);
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                   () =>
-                   {
-                        // Create a bitmap
-                        greetingOutput.Text = String.Format("Received data: \"{0}\"", reader.ReadString(921600));
-                   });
+                    async () =>
+                    {
+                        Guid BitmapEncoderGuid = BitmapEncoder.PngEncoderId;
+
+                        StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
+                        var file = await rootFolder.CreateFileAsync("Image.png", CreationCollisionOption.OpenIfExists);
+                        using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                        {
+                            BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoderGuid, stream);
+                            encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore, tabletResX, tabletResY, 96.0, 96.0, newBytes);
+                            encoder.BitmapTransform.ScaledHeight = 1080;
+                            encoder.BitmapTransform.ScaledWidth = 1920;
+                            await encoder.FlushAsync();
+                        }
+
+                        IRandomAccessStream myStream = await file.OpenReadAsync();
+                        BitmapImage toDisplay = new BitmapImage();
+                        toDisplay.SetSource(myStream);
+                        BackgroundImage.Source = toDisplay;
+                    });
                 }
             }
             catch (Exception exception)
             {
                 // If this is an unknown status it means that the error is fatal and retry will likely fail.
-                /*if (SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
-                {
-                    throw;
-                }
-
-                NotifyUserFromAsyncThread(
-                    "Read stream failed with error: " + exception.Message,
-                    NotifyType.ErrorMessage);*/
             }
-
-/////////////////////////////////////////////////////////
-/*
-            // Obtain the socket that is sending the info
-            connectedSocket = args.Socket;
-            Debug.WriteLine("Client has connected"); // It does connect
-
-            // Get the socket's stream
-            Stream streamIn = connectedSocket.InputStream.AsStreamForRead();
-
-            // Size of buffer
-            int maxSize = 3 * 640 * 480; //Screen res + 3 channels
-
-            // Buffer to store the stream data into
-            byte[] buffer = new byte[maxSize];
-
-            //int offset = 0;
-            //int bytesRead;
-            //do
-            //{
-
-            // Asynchronously read the incoming stream and store it in our buffer. 
-            // Having it in a loop didn't help either
-            await streamIn.ReadAsync(buffer, 0, maxSize);
-                //offset += bytesRead;
-            //} while (bytesRead > 0);
-            Debug.WriteLine("Left loop");
-
-            // Create a stream that can be used as input for an image
-            InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream();
-
-            // Asynchronously copy the read stream into this new stream
-            await randomAccessStream.WriteAsync(buffer.AsBuffer());
-
-            // Go to the stream's beginning
-            randomAccessStream.Seek(0);
-
-            // Give the control the the UI thread
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            () =>
-            {
-                // Create a bitmap
-                var bitmap = new BitmapImage();
-
-                // Assign the read stream as the bitmap's content
-                bitmap.SetSource(randomAccessStream);
-
-                // Use the created bitmap as the background image's source
-                BackgroundImage.Source = bitmap;
-            });*/
-
-            ///
-            /// Several other attemps.
-            ///
-            /*var inputStream = await connectedSocket.InputStream.ReadAsync();
-
-
-            DataReader reader = new DataReader(connectedSocket.InputStream);
-            reader.InputStreamOptions = InputStreamOptions.Partial;
-            await reader.LoadAsync(250);
-            var dataString = reader.ReadString(reader.UnconsumedBufferLength);
-            greetingOutput.Text = "Stream: " + dataString;*/
-
-
-            //Stream streamIn = connectedSocket.InputStream.AsStreamForRead();
-            //IBuffer result = new Windows.Storage.Streams.Buffer(921600);
-            //await connectedSocket.InputStream.ReadAsync(result, result.Capacity, InputStreamOptions.Partial);
-
-            //var memStream = new MemoryStream();
-            //await streamIn.CopyToAsync(memStream);
-            //memStream.Position = 0;
-            /*int maxSize = 3 * 640 * 480;
-            byte[] buffer = new byte[maxSize];
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            () =>
-            {
-                //byte[] buffer = new byte[3 * 640 * 480];
-                using (MemoryStream ms = new MemoryStream())
-                {
-
-                    int read;
-                    while ((read = streamIn.Read(buffer, 0, maxSize)) > 0)
-                    {
-                        // Debug.WriteLine("Chunchito {0}", read);
-                        ms.Write(buffer, 0, read);
-                    }
-                    Debug.WriteLine("Left loop");
-                    //return ms.ToArray();
-                    var myBitmap = new BitmapImage();
-                    myBitmap.SetSource(ms.AsRandomAccessStream());
-                    //bitmap.SetSource(result.AsStream().AsRandomAccessStream());
-                    BackgroundImage.Source = myBitmap;
-                }
-                /*var bitmap = new BitmapImage();
-                //bitmap.SetSource(memStream.AsRandomAccessStream());
-                bitmap.SetSource(result.AsStream().AsRandomAccessStream());
-                BackgroundImage.Source = bitmap;
-            });*/
-            /*
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            () =>
-            {
-                var bitmap = new BitmapImage();
-                //bitmap.SetSource(memStream.AsRandomAccessStream());
-                bitmap.SetSource(result.AsStream().AsRandomAccessStream());
-                BackgroundImage.Source = bitmap;
-            });*/
-
-
-
-            /*IRandomAccessStream streamForImage = new InMemoryRandomAccessStream();
-            using (var inputStream = connectedSocket.InputStream)
-            {
-                await RandomAccessStream.CopyAsync(inputStream, streamForImage);
-                Debug.WriteLine("Copying stream");
-            }
-            streamForImage.Seek(0);
-
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            () =>
-            {
-                var bitmap = new BitmapImage();
-                bitmap.SetSource(streamForImage);
-                BackgroundImage.Source = bitmap;
-                Debug.WriteLine("Image generated");
-            });*/
         }
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             Debug.WriteLine("Waiting for client to connect...");
@@ -293,24 +164,35 @@ namespace MentorSystem
             await tcpListener.BindEndpointAsync(null, port);
         }
 
-        ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
 
+
+        ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
+        private async void OnConnectedThread(StreamSocketListenerConnectionReceivedEventArgs args)
+        {
+            while (true)
+            {
+                IInputStream connectedSocket = args.Socket.InputStream;
+                Stream myStream = connectedSocket.AsStreamForRead();
+                StreamReader myReader = new StreamReader(myStream);
+                char[] myInfo = new char[921600];
+                await myReader.ReadAsync(myInfo, 0, 921599);
+                Encoding u8 = Encoding.UTF8;
+                byte[] myBytes = u8.GetBytes(myInfo);
+                MemoryStream ms = new MemoryStream(myBytes);
+                BitmapImage bitmap = new BitmapImage();
+                await bitmap.SetSourceAsync(ms.AsRandomAccessStream());
+                BackgroundImage.Source = bitmap;
+
+                //read as char or as float?
+                //byte[] myInfo = new byte[921600];
+                //await myStream.ReadAsync(myInfo, 0, 921599);
+            }  
+        }
 
         private void JsonThread()
         {
             myJsonManager.constructGeneralJSON();
-        }
-
-        //////////////////////////////////////////////////
-        
-
-        private void createJSONable()
-        {
-            //JsonObject 
-        }
-        /// //////////////////////////////////////////////
-        
-
+        }   
 
         private void imagesPanelTapped(object sender, TappedRoutedEventArgs e)
         {

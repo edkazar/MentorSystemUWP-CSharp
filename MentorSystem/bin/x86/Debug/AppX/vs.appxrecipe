@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-27T21:47:49.506</Modified>
+      <Modified>2017-08-01T20:26:18.020</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.exe">
       <PackagePath>entrypoint\MentorSystem.exe</PackagePath>
-      <Modified>2017-07-27T21:47:49.236</Modified>
+      <Modified>2017-08-01T20:26:17.753</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -661,11 +661,11 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-26T14:02:51.449</Modified>
+      <Modified>2017-08-01T16:39:18.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\MentorSystem.exe">
       <PackagePath>MentorSystem.exe</PackagePath>
-      <Modified>2017-07-27T21:47:49.502</Modified>
+      <Modified>2017-08-01T20:26:18.016</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
