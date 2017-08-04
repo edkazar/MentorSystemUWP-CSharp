@@ -56,11 +56,11 @@ namespace MentorSystem
 
         ///////////////// Variables for the socket communication
         private StreamSocketListener tcpListener;
-        private StreamSocket connectedSocket = null;
         private const string port = "8900";
-
+        StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
+        private bool connectionHappened = false;
         ///////////////////////
-        
+
 
         public MainPage()
         {
@@ -90,6 +90,7 @@ namespace MentorSystem
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
             Debug.WriteLine("Got Connected");
+            connectionHappened = true;
             DataReader reader = new DataReader(args.Socket.InputStream);
             uint tabletResX = 640;
             uint tabletResY = 400;
@@ -98,11 +99,13 @@ namespace MentorSystem
             uint orgRes = tabletResX * tabletResY * orgNumChan;
             uint targetRes = tabletResX * tabletResY * targetNumChan;
             byte[] myInfo = new byte[orgRes];
+            int deletionCntr = 0;
 
             try
             {
                 while (true)
                 {
+                    
                     // Read first 4 bytes (length of the subsequent string).
                     uint sizeFieldCount = await reader.LoadAsync(sizeof(byte) * orgRes);
                     if (sizeFieldCount != sizeof(byte) * orgRes)
@@ -125,6 +128,12 @@ namespace MentorSystem
                         thiss += 3;
                     }
 
+                    if (deletionCntr == 10)
+                    {
+                        deleteTempFiles();
+                        deletionCntr = 0;
+                    }
+
                     // Display the string on the screen. The event is invoked on a non-UI thread, so we need to marshal
                     // the text back to the UI thread.
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
@@ -132,9 +141,9 @@ namespace MentorSystem
                     {
                         Guid BitmapEncoderGuid = BitmapEncoder.PngEncoderId;
 
-                        StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
-                        var file = await rootFolder.CreateFileAsync("Image.png", CreationCollisionOption.OpenIfExists);
-                        using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                        var file = await rootFolder.CreateFileAsync("Image.png", CreationCollisionOption.GenerateUniqueName);                      
+
+                        using (var stream = await file.OpenAsync(FileAccessMode.ReadWrite))
                         {
                             BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoderGuid, stream);
                             encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore, tabletResX, tabletResY, 96.0, 96.0, newBytes);
@@ -142,12 +151,15 @@ namespace MentorSystem
                             encoder.BitmapTransform.ScaledWidth = 1920;
                             await encoder.FlushAsync();
                         }
-
-                        IRandomAccessStream myStream = await file.OpenReadAsync();
-                        BitmapImage toDisplay = new BitmapImage();
-                        toDisplay.SetSource(myStream);
-                        BackgroundImage.Source = toDisplay;
+                        using (var myStream = await file.OpenAsync(FileAccessMode.Read))
+                        {
+                            BitmapImage toDisplay = new BitmapImage();
+                            toDisplay.SetSource(myStream);
+                            BackgroundImage.Source = toDisplay;
+                        }
                     });
+
+                    deletionCntr++;
                 }
             }
             catch (Exception exception)
@@ -163,31 +175,7 @@ namespace MentorSystem
             tcpListener.ConnectionReceived += OnConnected;
             await tcpListener.BindEndpointAsync(null, port);
         }
-
-
-
         ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
-        private async void OnConnectedThread(StreamSocketListenerConnectionReceivedEventArgs args)
-        {
-            while (true)
-            {
-                IInputStream connectedSocket = args.Socket.InputStream;
-                Stream myStream = connectedSocket.AsStreamForRead();
-                StreamReader myReader = new StreamReader(myStream);
-                char[] myInfo = new char[921600];
-                await myReader.ReadAsync(myInfo, 0, 921599);
-                Encoding u8 = Encoding.UTF8;
-                byte[] myBytes = u8.GetBytes(myInfo);
-                MemoryStream ms = new MemoryStream(myBytes);
-                BitmapImage bitmap = new BitmapImage();
-                await bitmap.SetSourceAsync(ms.AsRandomAccessStream());
-                BackgroundImage.Source = bitmap;
-
-                //read as char or as float?
-                //byte[] myInfo = new byte[921600];
-                //await myStream.ReadAsync(myInfo, 0, 921599);
-            }  
-        }
 
         private void JsonThread()
         {
@@ -230,7 +218,6 @@ namespace MentorSystem
             myJsonManager.createJSONable(1, "UpdateAnnotationCommand", null, "stethoscope", myList);
 
             myJsonManager.createJSONable(3, "DeleteAnnotationCommand", null, null, null);*/
-
 
             /*if (!myCommunication.Except)
             {
@@ -333,9 +320,49 @@ namespace MentorSystem
             drawingPanel.Children.Clear();
         }
 
-        private void ExitButtonClicked(object sender, RoutedEventArgs e)
+        private async void ExitButtonClicked(object sender, RoutedEventArgs e)
         {
+            if (connectionHappened)
+            {
+                try
+                {
+                    StorageFile file = await rootFolder.GetFileAsync("Image.png");
+                    await file.DeleteAsync();
+                }
+                catch (IOException exception)
+                {
+                    
+                }
+
+                deleteTempFiles();
+            }
+            
             Application.Current.Exit();
+        }
+
+        private async void deleteTempFiles()
+        {
+            
+            StorageFile file;
+            bool proceed = true;
+            int fileCtr = 2;
+            while (proceed)
+            {
+                string filePath = "Image (" + fileCtr.ToString() + ").png";
+
+                try
+                {
+                    file = await rootFolder.GetFileAsync(filePath);
+                }
+                catch (IOException exception)
+                {
+                    //Debug.WriteLine("Deleted " + fileCtr.ToString() + " images");
+                    break;
+                }
+
+                await file.DeleteAsync();
+                fileCtr++;
+            }           
         }
 
         private void IconImage_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
