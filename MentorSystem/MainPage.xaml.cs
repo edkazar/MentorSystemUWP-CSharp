@@ -41,7 +41,6 @@ namespace MentorSystem
         static double PI = 3.14159265358979323846f;
 
         private ControlCenter myController;
-        private CommunicationManager myCommunicationManager;
         private JSONManager myJsonManager;
 
         private SolidColorBrush redColor;
@@ -55,8 +54,10 @@ namespace MentorSystem
         private int AnnotationCounter;
 
         ///////////////// Variables for the socket communication
-        private StreamSocketListener tcpListener;
-        private const string port = "8900";
+        private StreamSocketListener tcpVideoListener;
+        private const string videoPort = "8900";
+        private StreamSocketListener tcpJsonListener;
+        private const string jsonPort = "8988";
         StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
         private bool connectionHappened = false;
         ///////////////////////
@@ -66,7 +67,6 @@ namespace MentorSystem
         {
             this.InitializeComponent();
             myController = new ControlCenter();
-            myCommunicationManager = new CommunicationManager();
             myJsonManager = new JSONManager();
 
             redColor = new SolidColorBrush(Windows.UI.Colors.Red);
@@ -77,6 +77,8 @@ namespace MentorSystem
 
             AnnotationCounter = 0;
             ResetLineAnnotation();
+
+            deleteTempFiles();
 
             ColoredRectangle.PointerEntered += EnteringRectangle;
 
@@ -168,19 +170,30 @@ namespace MentorSystem
             }
         }
 
+        private async void jsonOnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
+        {
+            Debug.WriteLine("Also entered here");
+            myJsonManager.receiveSocket(args.Socket);
+        }
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             Debug.WriteLine("Waiting for client to connect...");
-            tcpListener = new StreamSocketListener();
-            tcpListener.ConnectionReceived += OnConnected;
-            await tcpListener.BindEndpointAsync(null, port);
+
+            tcpVideoListener = new StreamSocketListener();
+            tcpVideoListener.ConnectionReceived += OnConnected;
+            await tcpVideoListener.BindEndpointAsync(null, videoPort);
+
+            tcpJsonListener = new StreamSocketListener();
+            tcpJsonListener.ConnectionReceived += jsonOnConnected;
+            await tcpJsonListener.BindEndpointAsync(null, jsonPort);
         }
         ////////////////////////////////////////////////////////////////////// END OF SOCKET CODE
 
         private void JsonThread()
         {
             myJsonManager.constructGeneralJSON();
-        }   
+        }
 
         private void imagesPanelTapped(object sender, TappedRoutedEventArgs e)
         {
@@ -198,42 +211,13 @@ namespace MentorSystem
                 PreparePointAnnotation(e);
                 LineAnnotation.Name = AnnotationCounter.ToString();
                 drawingPanel.Children.Add(LineAnnotation);
-                
+
+                // Prepare annotation to send
+                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(),null), null, null);
+
                 ResetLineAnnotation();
                 AnnotationCounter++;
             }
-
-            /*List<double> myList = new List<double>();
-            myList.Add(2.0F);
-            myList.Add(3.0F);
-            myList.Add(5.0F);
-            myList.Add(7.0F);
-            myJsonManager.createJSONable(2,"CreateAnnotationCommand",myList,null,null);
-
-            List<double> myList = new List<double>();
-            myList.Add(2.0F);
-            myList.Add(3.0F);
-            myList.Add(0.65F);
-            myList.Add(0.02F);
-            myJsonManager.createJSONable(1, "UpdateAnnotationCommand", null, "stethoscope", myList);
-
-            myJsonManager.createJSONable(3, "DeleteAnnotationCommand", null, null, null);*/
-
-            /*if (!myCommunication.Except)
-            {
-                if (myCommunication.Connected)
-                {
-                    ColoredRectangle.Fill = buttonCheckedColor;
-                }
-                else if (!myCommunication.Connected)
-                {
-                    ColoredRectangle.Fill = buttonUncheckedColor;
-                }
-            }
-            else
-            {
-                ColoredRectangle.Fill = greenColor;
-            }*/
         }
 
         private void LineDrawing(object sender, PointerRoutedEventArgs e)
@@ -248,12 +232,41 @@ namespace MentorSystem
         {
             if (buttonLines.IsChecked.Value)
             {
-                LineAnnotation.Name = AnnotationCounter.ToString();
+                LineAnnotation.Name = AnnotationCounter.ToString();            
                 drawingPanel.Children.Add(LineAnnotation);
+
+                // Prepare annotation to send
+                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
 
                 ResetLineAnnotation();
                 AnnotationCounter++;
             }
+        }
+
+        private List<double> getPointsFromLine(Point[] myPoints, object offset)
+        {
+            double offsetX, offsetY;
+            if(offset == null)
+            {
+                offsetX = 0;
+                offsetY = 0;
+            }
+            else
+            {
+                Point myOffset = (Point)offset;
+                offsetX = myOffset.X;
+                offsetY = myOffset.Y;
+            }
+
+            List<double> pointsToJSON = new List<double>();
+
+            foreach (Point myPoint in myPoints)
+            {
+                pointsToJSON.Add(myPoint.X + offsetX);
+                pointsToJSON.Add(myPoint.Y + offsetY);
+            }
+
+            return pointsToJSON;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -316,6 +329,18 @@ namespace MentorSystem
 
         private void EraseAllButtonClicked(object sender, RoutedEventArgs e)
         {
+            //var myKids = imagesPanel.Children;
+            foreach(UIElement element in imagesPanel.Children)
+            {
+                Image thisImage = element as Image;
+                myJsonManager.createJSONable(Int32.Parse(thisImage.Name), "DeleteAnnotationCommand", null, null, null);
+            }
+            foreach (UIElement element in drawingPanel.Children)
+            {
+                Polyline thisImage = element as Polyline;
+                myJsonManager.createJSONable(Int32.Parse(thisImage.Name), "DeleteAnnotationCommand", null, null, null);
+            }
+
             imagesPanel.Children.Clear();
             drawingPanel.Children.Clear();
         }
@@ -342,7 +367,6 @@ namespace MentorSystem
 
         private async void deleteTempFiles()
         {
-            
             StorageFile file;
             bool proceed = true;
             int fileCtr = 2;
@@ -421,11 +445,31 @@ namespace MentorSystem
             {
                 Image selectedElement = sender as Image;
                 selectedElement.Opacity = 1;
-
+                
                 if (TrashBinOpenImage.Opacity == 1)
                 {
                     int idx = imagesPanel.Children.IndexOf(selectedElement);
                     imagesPanel.Children.RemoveAt(idx);
+                    
+                    // Prepare annotation to send
+                    myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "DeleteAnnotationCommand", null, null, null);
+                }
+                else
+                {
+                    //update
+                    var ttv = selectedElement.TransformToVisual(Window.Current.Content);
+                    Point screenCoords = ttv.TransformPoint(new Point(0, 0));
+                    
+                    List<double> annotation_information = new List<double>();
+                    annotation_information.Add(screenCoords.X);
+                    annotation_information.Add(screenCoords.Y);
+                    CompositeTransform myTransf = selectedElement.RenderTransform as CompositeTransform;
+                    annotation_information.Add(myTransf.Rotation);
+                    annotation_information.Add(myTransf.ScaleX);
+                    BitmapImage myBitmap = selectedElement.Source as BitmapImage;
+
+                    // Retrieve annotation name
+                    myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", null, RetrieveAnnotationName(myBitmap.UriSource), annotation_information);
                 }
             }
             else
@@ -437,6 +481,19 @@ namespace MentorSystem
                 {
                     int idx = drawingPanel.Children.IndexOf(selectedElement);
                     drawingPanel.Children.RemoveAt(idx);
+
+                    // Prepare annotation to send
+                    myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "DeleteAnnotationCommand", null, null, null);
+                }
+                else
+                {
+                    //update
+
+                    var ttv = selectedElement.TransformToVisual(Window.Current.Content);
+                    Point screenCoords = ttv.TransformPoint(new Point(0, 0));
+
+                    // Prepare annotation to send
+                    myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", getPointsFromLine(selectedElement.Points.ToArray(), screenCoords), null, null);
                 }
             }
         }
@@ -461,9 +518,11 @@ namespace MentorSystem
 
             // Annotation dimension and position
             Point tappedPosition = e.GetPosition(imagesPanel);
-            iconImage.Width = 150; iconImage.Height = 150;
             iconImage.HorizontalAlignment = HorizontalAlignment.Left;
             iconImage.VerticalAlignment = VerticalAlignment.Top;
+            iconImage.Width = 1920 * 0.09f;
+            //create hash structure, with name as key, as a struct as element. The struct should have the image and the zoom value of it
+            //iconImage.
             iconImage.Name = AnnotationCounter.ToString();
             imagesPanel.Children.Add(iconImage);
             iconImage.Margin = new Thickness(tappedPosition.X, tappedPosition.Y, 0, 0);
@@ -473,10 +532,20 @@ namespace MentorSystem
             iconImage.ManipulationDelta += IconImage_ManipulationDelta;
             iconImage.ManipulationCompleted += IconImage_ManipulationCompleted;
             iconImage.ManipulationMode = ManipulationModes.Rotate | ManipulationModes.Scale | ManipulationModes.TranslateX | ManipulationModes.TranslateY;
-            iconImage.RenderTransform = new CompositeTransform();
+            CompositeTransform myTransf = new CompositeTransform();
+            myTransf.ScaleX = 1;
+            myTransf.ScaleY = 1;
+            myTransf.Rotation = -45;
+            iconImage.RenderTransform = myTransf;       
+
+            List<double> annotation_information = new List<double>();
+            annotation_information.Add(tappedPosition.X);
+            annotation_information.Add(tappedPosition.Y);
+            annotation_information.Add(myTransf.Rotation);
+            annotation_information.Add(myTransf.ScaleX);       
 
             // Retrieve annotation name
-            Debug.WriteLine(RetrieveAnnotationName(iconUri));
+            myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", null, RetrieveAnnotationName(iconUri), annotation_information);
             AnnotationCounter++;
         }
 

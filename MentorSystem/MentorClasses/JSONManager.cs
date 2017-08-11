@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
 using System.Diagnostics;
+using Windows.Networking.Sockets;
 
 namespace MentorSystem
 {
@@ -20,8 +21,7 @@ namespace MentorSystem
     };
 
     class JSONManager
-    {
-        
+    {  
         private const string CREATE_ANNOTATION_COMMAND = "CreateAnnotationCommand";
         private const string UPDATE_ANNOTATION_COMMAND = "UpdateAnnotationCommand";
         private const string DELETE_ANNOTATION_COMMAND = "DeleteAnnotationCommand";
@@ -32,6 +32,9 @@ namespace MentorSystem
 
         private Queue<JSONable> JSONs_to_create;
         private bool isJsonBeingCreated;
+
+        private StreamSocket JsonSocket;
+        /*private const string jsonPort = "8988";*/
 
         public JSONManager()
         {
@@ -116,7 +119,7 @@ namespace MentorSystem
             {
                 JsonObject newPointAnnotation = new JsonObject();
                 newPointAnnotation.SetNamedValue("x", JsonValue.CreateNumberValue(myPoints.ElementAt(counter) / RESOLUTION_X));
-                newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue((RESOLUTION_Y - (myPoints.ElementAt(counter + 1))) / RESOLUTION_Y));//check this later on
+                newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(myPoints.ElementAt(counter + 1) / RESOLUTION_Y));//check this later on
                 annotationPoints.Add(newPointAnnotation);
             }
             initialAnnotation.Add("annotationPoints", annotationPoints);
@@ -151,11 +154,11 @@ namespace MentorSystem
 
             JsonObject newPointAnnotation = new JsonObject();
             newPointAnnotation.SetNamedValue("x", JsonValue.CreateNumberValue(annotation_information[0] / RESOLUTION_X));
-            newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(annotation_information[1] / RESOLUTION_Y));//check this later on
+            newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(annotation_information[1] / RESOLUTION_Y));
             annotationPoints.Add(newPointAnnotation);
             initialAnnotation.Add("annotationPoints", annotationPoints);
 
-            initialAnnotation.SetNamedValue("rotation", JsonValue.CreateNumberValue(-1 * (annotation_information[2])));//check
+            initialAnnotation.SetNamedValue("rotation", JsonValue.CreateNumberValue(-1 * (annotation_information[2]+45)));
             initialAnnotation.SetNamedValue("scale", JsonValue.CreateNumberValue(annotation_information[3]));
             initialAnnotation.SetNamedValue("annotationType", JsonValue.CreateStringValue(ICON_ANNOTATION));
             initialAnnotation.SetNamedValue("toolType", JsonValue.CreateStringValue(annotation_name));
@@ -192,22 +195,34 @@ namespace MentorSystem
             JSONtoNetwork(string_to_send);
         }
 
-        /*
-         * Method Overview: Routines to send JSON strings over the network
-         * Parameters: String containing the JSON Value
-         * Return: None
-         */
-        void JSONtoNetwork(string string_to_send)
+       private async void JSONtoNetwork(string string_to_send)
         {
-            //Makes a copy of the string and transform it into a char*
-            string my_string_to_send = string_to_send + "\n";
-            char[] message_to_send = my_string_to_send.ToCharArray();
-
-            //Actually sends the message
-            //i bnt iResult = myCommunicationManager->sendActionPackets(message_to_send, JSON_NETWORK_CODE);
+            //Send the line back to the remote client.
+            if (JsonSocket != null)
+            {
+                Stream outStream = JsonSocket.OutputStream.AsStreamForWrite();
+                StreamWriter writer = new StreamWriter(outStream);
+                await writer.WriteLineAsync(string_to_send);
+                await writer.FlushAsync();
+            }
 
             //Let the CommanderCenter know that the message was sent
             isJsonBeingCreated = false;
+        }
+
+        public async void receiveSocket(StreamSocket socket)
+        {
+            JsonSocket = socket;
+        }
+
+        public static Stream GenerateStreamFromString(string s)
+        {
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
         }
     }
 }
