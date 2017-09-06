@@ -9,17 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
         <Image x:ConnectionId='1' x:Name="BackgroundImage" Source="Assets/operating_room.jpg" Height="1080"                                                                                  />
-        <Canvas x:ConnectionId='2' x:Name="imagesPanel" Margin="0,0,0,0">  
+        <!--MediaElement x:Name="mediaPlayer" Source="Assets/DroneView2.mp4" Width="1920" Height="1080" AutoPlay="True"  Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/-->
+        <Canvas x:ConnectionId='2' x:Name="imagesPanel" Margin="0,0,0,0">
         </Canvas>
         <StackPanel x:ConnectionId='3' x:Name="contentPanel" Margin="0,0,0,0">
-            <TextBlock HorizontalAlignment="Left" Text="Hello World" FontSize="36" FontFamily="Gotham"/>
+            <!--TextBlock HorizontalAlignment="Left" Text="Hello World" FontSize="36" FontFamily="Gotham"/>
             <TextBlock Text="What's your name?" FontFamily="Gotham"/>
-            <StackPanel x:ConnectionId='37' x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
-                <TextBox x:ConnectionId='40' x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
-                <Button x:ConnectionId='41' x:Name="inputButton" Content="Say &quot;Hello&quot;" FontFamily="Gotham"                     />
-            </StackPanel>
-            <TextBlock x:ConnectionId='38' x:Name="greetingOutput"/>
-            <Rectangle x:ConnectionId='39' x:Name="ColoredRectangle" Fill="#FFF4F4F5" CanDrag="True" HorizontalAlignment="Left" Height="160" Margin="38,290,0,0" Stroke="Black" VerticalAlignment="Top" Width="160"                                       />
+            <StackPanel x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
+                <Button x:Name="inputButton" Content="Say &quot;Hello&quot;" FontFamily="Gotham" Click="Button_Click"/>
+            </StackPanel-->
+            <TextBlock x:ConnectionId='37' x:Name="greetingOutput"/>
+            <!--Rectangle x:Name="ColoredRectangle" Fill="#FFF4F4F5" CanDrag="True" HorizontalAlignment="Left" Height="160" Margin="38,290,0,0" Stroke="Black" VerticalAlignment="Top" Width="160" DoubleTapped="Rectangle_DoubleTapped" /-->
         </StackPanel>
         <Canvas x:ConnectionId='4' x:Name="drawingPanel" HorizontalAlignment="Left" Height="1080" Margin="0,0,0,0" Width="1920"/>
         <Pivot x:ConnectionId='5' x:Name="PivotPanel" Margin="0,939,876,0" Background="#7F706E6E" HeaderTemplate="{StaticResource GothamHeader}">

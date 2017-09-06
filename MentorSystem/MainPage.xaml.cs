@@ -26,6 +26,9 @@ using Windows.Storage.Streams;
 using Windows.Storage;
 using Windows.Graphics.Imaging;
 using System.Text;
+using Windows.UI.ViewManagement;
+using Windows.Storage.Pickers;
+using Windows.Media.Editing;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -80,9 +83,9 @@ namespace MentorSystem
 
             deleteTempFiles();
 
-            ColoredRectangle.PointerEntered += EnteringRectangle;
+            //ColoredRectangle.PointerEntered += EnteringRectangle;
 
-            ColoredRectangle.Holding += HoldingRectangle;
+            //ColoredRectangle.Holding += HoldingRectangle;
 
             //////////////Threads//////////////
             Task jsonTask = Task.Run( () => JsonThread());
@@ -197,7 +200,7 @@ namespace MentorSystem
 
         private void imagesPanelTapped(object sender, TappedRoutedEventArgs e)
         {
-            ColoredRectangle.Fill = tealColor;
+            //ColoredRectangle.Fill = tealColor;
 
             if (myController.GetIconAnnotationSelectedFlag())
             {
@@ -269,17 +272,6 @@ namespace MentorSystem
             return pointsToJSON;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            greetingOutput.Text = "Hello, " + nameInput.Text + "!";
-            ColoredRectangle.Fill = redColor;
-        }
-
-        private void Rectangle_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            ColoredRectangle.Fill = greenColor;
-        }
-
         private void iconPanelImageTapped(object sender, TappedRoutedEventArgs e)
         {
             buttonLines.IsChecked = false;
@@ -329,8 +321,10 @@ namespace MentorSystem
 
         private void EraseAllButtonClicked(object sender, RoutedEventArgs e)
         {
+            
+
             //var myKids = imagesPanel.Children;
-            foreach(UIElement element in imagesPanel.Children)
+            foreach (UIElement element in imagesPanel.Children)
             {
                 Image thisImage = element as Image;
                 myJsonManager.createJSONable(Int32.Parse(thisImage.Name), "DeleteAnnotationCommand", null, null, null);
@@ -496,17 +490,7 @@ namespace MentorSystem
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", getPointsFromLine(selectedElement.Points.ToArray(), screenCoords), null, null);
                 }
             }
-        }
-
-        private void EnteringRectangle(object sender, PointerRoutedEventArgs e)
-        {
-            ColoredRectangle.Fill = goldColor;
-        }
-
-        private void HoldingRectangle(object sender, HoldingRoutedEventArgs e)
-        {
-            ColoredRectangle.Fill = tealColor;
-        }
+        }    
 
         private void CreateIconAnnotation(TappedRoutedEventArgs e)
         {
@@ -608,10 +592,32 @@ namespace MentorSystem
 
         private string RetrieveAnnotationName(Uri iconUri)
         {
+            greetingOutput.Text = iconUri.ToString();
             string path = iconUri.ToString();
             string[] parts = path.Split('.');
             string[] finalParts = parts.First().Split('/');
             return finalParts.Last();
         }
+
+        /*private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            greetingOutput.Text = "Hello, " + nameInput.Text + "!";
+            ColoredRectangle.Fill = redColor;
+        }
+
+        private void Rectangle_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            ColoredRectangle.Fill = greenColor;
+        }
+
+        private void HoldingRectangle(object sender, HoldingRoutedEventArgs e)
+        {
+            ColoredRectangle.Fill = tealColor;
+        }
+        
+        private void EnteringRectangle(object sender, PointerRoutedEventArgs e)
+        {
+            ColoredRectangle.Fill = goldColor;
+        }*/
     }
 }

@@ -159,7 +159,7 @@ namespace MentorSystem
             initialAnnotation.Add("annotationPoints", annotationPoints);
 
             initialAnnotation.SetNamedValue("rotation", JsonValue.CreateNumberValue(-1 * (annotation_information[2]+45)));
-            initialAnnotation.SetNamedValue("scale", JsonValue.CreateNumberValue(annotation_information[3]));
+            initialAnnotation.SetNamedValue("scale", JsonValue.CreateNumberValue(annotation_information[3]*0.09f));
             initialAnnotation.SetNamedValue("annotationType", JsonValue.CreateStringValue(ICON_ANNOTATION));
             initialAnnotation.SetNamedValue("toolType", JsonValue.CreateStringValue(annotation_name));
             initialAnnotation.SetNamedValue("selectableColor", JsonValue.CreateNumberValue(0));

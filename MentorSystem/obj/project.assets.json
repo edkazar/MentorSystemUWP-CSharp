@@ -1,7 +1,7 @@
 {
   "version": 2,
   "targets": {
-    "UAP,Version=v10.0.10240": {
+    "UAP,Version=v10.0.15063": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2170,7 +2170,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-arm": {
+    "UAP,Version=v10.0.15063/win10-arm": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4422,7 +4422,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-arm-aot": {
+    "UAP,Version=v10.0.15063/win10-arm-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -6713,7 +6713,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-x64": {
+    "UAP,Version=v10.0.15063/win10-x64": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -8974,7 +8974,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-x64-aot": {
+    "UAP,Version=v10.0.15063/win10-x64-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11274,7 +11274,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-x86": {
+    "UAP,Version=v10.0.15063/win10-x86": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -13535,7 +13535,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.10240/win10-x86-aot": {
+    "UAP,Version=v10.0.15063/win10-x86-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -22005,7 +22005,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "UAP,Version=v10.0.10240": [
+    "UAP,Version=v10.0.15063": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.3"
     ]
   },
@@ -22015,16 +22015,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
+      "projectUniqueName": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
       "projectName": "MentorSystem",
-      "projectPath": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
-      "outputPath": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\MentorSystem\\obj\\",
+      "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
+      "outputPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
-        "uap10.0.10240"
+        "uap10.0.15063"
       ],
       "frameworks": {
-        "uap10.0.10240": {
+        "uap10.0.15063": {
           "projectReferences": {}
         }
       }
@@ -22036,7 +22036,7 @@
       }
     },
     "frameworks": {
-      "uap10.0.10240": {
+      "uap10.0.15063": {
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",

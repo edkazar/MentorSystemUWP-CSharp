@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>cbafb651-1070-4791-8c1a-63e58a042655</PackageIdentityName>
     <PackageIdentityPublisher>CN=M2M ADMIN</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.exe">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.exe">
       <PackagePath>entrypoint\MentorSystem.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
@@ -370,136 +370,139 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\System.Xml.XmlSerializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\bvm.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\bvm.png">
       <PackagePath>Assets\bvm.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\ettube.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\ettube.png">
       <PackagePath>Assets\ettube.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_palpate.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_palpate.png">
       <PackagePath>Assets\hand_palpate.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_point.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_point.png">
       <PackagePath>Assets\hand_point.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_stretch.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\hand_stretch.png">
       <PackagePath>Assets\hand_stretch.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\hemostat.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\hemostat.png">
       <PackagePath>Assets\hemostat.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\iodineswab.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\iodineswab.png">
       <PackagePath>Assets\iodineswab.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\longhook.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\longhook.png">
       <PackagePath>Assets\longhook.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\retractor.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\retractor.png">
       <PackagePath>Assets\retractor.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\scalpel.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\scalpel.png">
       <PackagePath>Assets\scalpel.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\scissors.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\scissors.png">
       <PackagePath>Assets\scissors.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\stethoscope.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\stethoscope.png">
       <PackagePath>Assets\stethoscope.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\surgicaltape.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\surgicaltape.png">
       <PackagePath>Assets\surgicaltape.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\syringe.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\syringe.png">
       <PackagePath>Assets\syringe.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_close.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_close.png">
       <PackagePath>Assets\text_close.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_incision.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_incision.png">
       <PackagePath>Assets\text_incision.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_palpation.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_palpation.png">
       <PackagePath>Assets\text_palpation.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_remove.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_remove.png">
       <PackagePath>Assets\text_remove.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_stitch.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\text_stitch.png">
       <PackagePath>Assets\text_stitch.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\trash_bin_closed.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\trash_bin_closed.png">
       <PackagePath>Assets\trash_bin_closed.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\trash_bin_open.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\trash_bin_open.png">
       <PackagePath>Assets\trash_bin_open.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\tweezers.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\tweezers.png">
       <PackagePath>Assets\tweezers.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Assets\operating_room.jpg">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\DroneView2.mp4">
+      <PackagePath>Assets\DroneView2.mp4</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\operating_room.jpg">
       <PackagePath>Assets\operating_room.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.xr.xml">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.xr.xml">
       <PackagePath>MentorSystem.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\MentorSystem.exe">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\MentorSystem.exe">
       <PackagePath>MentorSystem.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
