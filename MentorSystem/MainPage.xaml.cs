@@ -423,37 +423,39 @@ namespace MentorSystem
             myTransform.TranslateY += e.Delta.Translation.Y;
         }
 
+        /*
+         * Method Overview: Handler of the release touch event
+         * Parameters: Object that generated the event, position of the event
+         * Return: None
+         */
         private void IconImage_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            /*dynamic contextualizedObject = Convert.ChangeType(sender, sender.GetType());
-            contextualizedObject.Opacity = 1;*/
-
-            /*if (TrashBinOpenImage->Opacity == 1)
-            {
-                unsigned int idx;
-                imagesPanel->Children->IndexOf(selectedElement, &idx);
-                imagesPanel->Children->RemoveAt(idx);
-            }*/
-
+            // If the edited object was an icon annotation
             if ("Windows.UI.Xaml.Controls.Image" == sender.GetType().ToString())
             {
+                // Return its opacity to full
                 Image selectedElement = sender as Image;
                 selectedElement.Opacity = 1;
                 
+                // Manipulation ended over the trash bin
                 if (TrashBinOpenImage.Opacity == 1)
                 {
+                    // get the current position of the object
                     int idx = imagesPanel.Children.IndexOf(selectedElement);
                     imagesPanel.Children.RemoveAt(idx);
                     
                     // Prepare annotation to send
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "DeleteAnnotationCommand", null, null, null);
                 }
+
+                // Rest of the screen
                 else
                 {
-                    //update
+                    // get the current position of the object
                     var ttv = selectedElement.TransformToVisual(Window.Current.Content);
                     Point screenCoords = ttv.TransformPoint(new Point(0, 0));
                     
+                    // Creates the information for the JSON
                     List<double> annotation_information = new List<double>();
                     annotation_information.Add(screenCoords.X);
                     annotation_information.Add(screenCoords.Y);
@@ -462,10 +464,12 @@ namespace MentorSystem
                     annotation_information.Add(myTransf.ScaleX);
                     BitmapImage myBitmap = selectedElement.Source as BitmapImage;
 
-                    // Retrieve annotation name
+                    // Start JSON creation process
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", null, RetrieveAnnotationName(myBitmap.UriSource), annotation_information);
                 }
             }
+
+            // Same as before, but if the object is a Line
             else
             {
                 Polyline selectedElement = sender as Polyline;
@@ -476,22 +480,23 @@ namespace MentorSystem
                     int idx = drawingPanel.Children.IndexOf(selectedElement);
                     drawingPanel.Children.RemoveAt(idx);
 
-                    // Prepare annotation to send
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "DeleteAnnotationCommand", null, null, null);
                 }
                 else
-                {
-                    //update
-
+                {     
                     var ttv = selectedElement.TransformToVisual(Window.Current.Content);
                     Point screenCoords = ttv.TransformPoint(new Point(0, 0));
 
-                    // Prepare annotation to send
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", getPointsFromLine(selectedElement.Points.ToArray(), screenCoords), null, null);
                 }
             }
-        }    
+        }
 
+        /*
+         * Method Overview: Given a tapped event position, create a icon annotation
+         * Parameters: Tapped event
+         * Return: None
+         */
         private void CreateIconAnnotation(TappedRoutedEventArgs e)
         {
             // Annotation path retrieval
@@ -505,8 +510,6 @@ namespace MentorSystem
             iconImage.HorizontalAlignment = HorizontalAlignment.Left;
             iconImage.VerticalAlignment = VerticalAlignment.Top;
             iconImage.Width = 1920 * 0.09f;
-            //create hash structure, with name as key, as a struct as element. The struct should have the image and the zoom value of it
-            //iconImage.
             iconImage.Name = AnnotationCounter.ToString();
             imagesPanel.Children.Add(iconImage);
             iconImage.Margin = new Thickness(tappedPosition.X, tappedPosition.Y, 0, 0);
@@ -522,17 +525,23 @@ namespace MentorSystem
             myTransf.Rotation = -45;
             iconImage.RenderTransform = myTransf;       
 
+            // Stores the important info of the annotation for the JSON
             List<double> annotation_information = new List<double>();
             annotation_information.Add(tappedPosition.X);
             annotation_information.Add(tappedPosition.Y);
             annotation_information.Add(myTransf.Rotation);
             annotation_information.Add(myTransf.ScaleX);       
 
-            // Retrieve annotation name
+            // Starts the JSON annotation creation process
             myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", null, RetrieveAnnotationName(iconUri), annotation_information);
             AnnotationCounter++;
         }
 
+        /*
+         * Method Overview: Given a tapped event position, create a circle around it
+         * Parameters: Tapped event
+         * Return: None
+         */
         private void PreparePointAnnotation(TappedRoutedEventArgs e)
         {
             double initial_point_distance = 5.0;
@@ -560,6 +569,11 @@ namespace MentorSystem
             }
         }
 
+        /*
+         * Method Overview: Creates the color to represent button clicks
+         * Parameters: None
+         * Return: None
+         */
         private void CreateButtonsColor()
         {
             Windows.UI.Color tempRGBAColor;
@@ -576,13 +590,21 @@ namespace MentorSystem
             buttonUncheckedColor = new SolidColorBrush(tempRGBAColor);
         }
 
+        /*
+         * Method Overview: Resets the element used to represent lines
+         * Parameters: None
+         * Return: None
+         */
         private void ResetLineAnnotation()
         {
+            // Touch manipulation handlers for the line
             LineAnnotation = new Polyline();
             LineAnnotation.Stroke = new SolidColorBrush(Windows.UI.Colors.Aquamarine);
             LineAnnotation.StrokeThickness = 7;
             LineAnnotation.HorizontalAlignment = HorizontalAlignment.Left;
             LineAnnotation.VerticalAlignment = VerticalAlignment.Top;
+
+            // Touch manipulation handlers for the line
             LineAnnotation.ManipulationStarted += IconImage_ManipulationStarted;
             LineAnnotation.ManipulationDelta += IconImage_ManipulationDelta;
             LineAnnotation.ManipulationCompleted += IconImage_ManipulationCompleted;
@@ -590,6 +612,11 @@ namespace MentorSystem
             LineAnnotation.RenderTransform = new CompositeTransform();
         }
 
+        /*
+         * Method Overview: Extracts the name of the icon based on an Uri
+         * Parameters: Uri the icon image
+         * Return: Name of the icon image
+         */
         private string RetrieveAnnotationName(Uri iconUri)
         {
             greetingOutput.Text = iconUri.ToString();
