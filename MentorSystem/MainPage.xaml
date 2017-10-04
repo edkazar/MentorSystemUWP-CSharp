@@ -10,6 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
         <Image x:Name="BackgroundImage" Source="Assets/operating_room.jpg" Height="1080" Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/>
         <!--MediaElement x:Name="mediaPlayer" Source="Assets/DroneView2.mp4" Width="1920" Height="1080" AutoPlay="True"  Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/-->
+        <!--MediaPlayerElement x:Name="mediaPlayerElement" AreTransportControlsEnabled="False" Width="1920" Height="1080" Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/-->
+        <MediaPlayerElement x:Name="mediaPlayerElement" AreTransportControlsEnabled="False" Margin="355,47,0,0" />
         <Canvas x:Name="imagesPanel" Margin="0,0,0,0">
         </Canvas>
         <StackPanel x:Name="contentPanel" Margin="0,0,0,0">
@@ -19,6 +21,7 @@
                 <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
                 <Button x:Name="inputButton" Content="Say &quot;Hello&quot;" FontFamily="Gotham" Click="Button_Click"/>
             </StackPanel-->
+            <Button x:Name="button" Content="Init and Start WebRTC" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="button_Click"/>
             <TextBlock x:Name="greetingOutput"/>
             <!--Rectangle x:Name="ColoredRectangle" Fill="#FFF4F4F5" CanDrag="True" HorizontalAlignment="Left" Height="160" Margin="38,290,0,0" Stroke="Black" VerticalAlignment="Top" Width="160" DoubleTapped="Rectangle_DoubleTapped" /-->
         </StackPanel>

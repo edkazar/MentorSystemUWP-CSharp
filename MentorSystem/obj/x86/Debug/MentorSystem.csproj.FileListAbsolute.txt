@@ -210,3 +210,14 @@ c:\users\m2m admin\documents\visual studio 2017\Projects\MentorSystem\MentorSyst
 c:\users\m2m admin\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\qualifiers.txt.intermediate
 c:\users\m2m admin\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\m2m admin\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\EngineIoClientDotNet.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\SocketIoClientDotNet.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Org.WebRtc.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Org.WebRtc.pri
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Org.WebRtc.winmd
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\WSAUnity.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\WSAUnity.pdb
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\WSAUnity.pri
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\MentorSystem.csproj.GenerateResource.Cache
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\obj\x86\Debug\Org.WebRtc.pri.xml

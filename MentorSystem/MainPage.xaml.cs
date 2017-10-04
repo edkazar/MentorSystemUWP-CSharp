@@ -30,6 +30,11 @@ using Windows.UI.ViewManagement;
 using Windows.Storage.Pickers;
 using Windows.Media.Editing;
 
+//using Org.WebRtc;
+using Windows.Media.Playback;
+using Windows.Media.Core;
+using WSAUnity;
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MentorSystem
@@ -41,6 +46,9 @@ namespace MentorSystem
 
     public sealed partial class MainPage : Page
     {
+        StarWebrtcContext starWebrtcContext;
+        MediaPlayer _mediaPlayer;
+
         static double PI = 3.14159265358979323846f;
 
         private ControlCenter myController;
@@ -90,7 +98,86 @@ namespace MentorSystem
             //////////////Threads//////////////
             Task jsonTask = Task.Run( () => JsonThread());
             ////////////////////////////////////
+
+            _mediaPlayer = new MediaPlayer();
+            mediaPlayerElement.SetMediaPlayer(_mediaPlayer);
+            starWebrtcContext = StarWebrtcContext.CreateMentorContext();
+
+            // comment these out if not needed
+            //Messenger.AddListener<string>(SympleLog.LogTrace, OnLog);
+            /*Messenger.AddListener<string>(SympleLog.LogDebug, OnLog);
+            Messenger.AddListener<string>(SympleLog.LogInfo, OnLog);
+            Messenger.AddListener<string>(SympleLog.LogError, OnLog);*/
+
+            Messenger.AddListener<IMediaSource>(SympleLog.CreatedMediaSource, OnCreatedMediaSource);
+            Messenger.AddListener(SympleLog.DestroyedMediaSource, OnDestroyedMediaSource);
         }
+
+        /// <summary>
+        /// ///////////////////
+        /// </summary>
+        private void OnDestroyedMediaSource()
+        {
+            Messenger.Broadcast(SympleLog.LogDebug, "OnDestroyedMediaSource");
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                /*
+                MediaSource currentSource = _mediaPlayer.Source as MediaSource;
+                if (currentSource != null)
+                {
+                    currentSource.Dispose();
+                }
+                */
+
+                _mediaPlayer.Source = null;
+            }
+            );
+
+        }
+
+        private void OnCreatedMediaSource(IMediaSource source)
+        {
+            Messenger.Broadcast(SympleLog.LogDebug, "OnCreatedMediaSource");
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                MediaSource createdSource = MediaSource.CreateFromIMediaSource(source);
+
+                _mediaPlayer.Source = createdSource;
+                _mediaPlayer.Play();
+            }
+            );
+
+        }
+
+        private void OnLog(string msg)
+        {
+            Debug.WriteLine(msg);
+
+            // http://stackoverflow.com/questions/19341591/the-application-called-an-interface-that-was-marshalled-for-a-different-thread
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                // Your UI update code goes here!
+                //textBox.Text += msg + "\n";
+            }
+            );
+
+        }
+
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            button.IsEnabled = false;
+
+            starWebrtcContext.initAndStartWebRTC();
+        }
+
+        /// <summary>
+        /// ////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
 
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {

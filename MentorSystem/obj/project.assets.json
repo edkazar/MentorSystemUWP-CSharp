@@ -2,6 +2,18 @@
   "version": 2,
   "targets": {
     "UAP,Version=v10.0.15063": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -288,6 +300,15 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.native.System.IO.Compression/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -312,6 +333,19 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -2168,9 +2202,65 @@
             "rid": "aot"
           }
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/Org.WebRtc.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-arm/native/Org.WebRtc.pri": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/Org.WebRtc.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x64/native/Org.WebRtc.pri": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/Org.WebRtc.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          },
+          "runtimes/win10-x86/native/Org.WebRtc.pri": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-arm": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2403,6 +2493,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -2735,6 +2834,19 @@
         "type": "package",
         "native": {
           "runtimes/win8-arm/native/clrcompression.dll": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -4420,9 +4532,43 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Org.WebRtc.dll": {},
+          "runtimes/win10-arm/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-arm-aot": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4656,6 +4802,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -5026,6 +5181,19 @@
         },
         "native": {
           "runtimes/win8-arm-aot/native/_._": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -6711,9 +6879,43 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Org.WebRtc.dll": {},
+          "runtimes/win10-arm/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-x64": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -6949,6 +7151,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -7287,6 +7498,19 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -8972,9 +9196,43 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Org.WebRtc.dll": {},
+          "runtimes/win10-x64/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-x64-aot": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -9211,6 +9469,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -9589,6 +9856,19 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -11272,9 +11552,43 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Org.WebRtc.dll": {},
+          "runtimes/win10-x64/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-x86": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11510,6 +11824,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -11848,6 +12171,19 @@
         },
         "runtime": {
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -13533,9 +13869,43 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Org.WebRtc.dll": {},
+          "runtimes/win10-x86/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-x86-aot": {
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -13772,6 +14142,15 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -14148,6 +14527,19 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "dependencies": {
+          "EngineIoClientDotNet": "0.9.22",
+          "Newtonsoft.Json": "8.0.1"
+        },
+        "compile": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/SocketIoClientDotNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -15833,10 +16225,51 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WebRtc/1.54.2": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Org.WebRtc.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Org.WebRtc.dll": {},
+          "runtimes/win10-x86/native/Org.WebRtc.pri": {}
+        }
+      },
+      "WSAUnity/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "SocketIOClientDotNet": "0.9.13",
+          "WebRtc": "1.54.2"
+        }
       }
     }
   },
   "libraries": {
+    "EngineIoClientDotNet/0.9.22": {
+      "sha512": "5uw8IcaSxNOJKcUtuX5dBReL9PxvXA5uRWy4Db0ptmVYEk8iJ0137jayafmI+O03T2rIVktO/wqeuVN6QvFSbg==",
+      "type": "package",
+      "path": "engineioclientdotnet/0.9.22",
+      "files": [
+        "EngineIoClientDotNet.0.9.22.nupkg.sha512",
+        "EngineIoClientDotNet.nuspec",
+        "lib/monoandroid10/EngineIoClientDotNet.dll",
+        "lib/monotouch10/EngineIoClientDotNet.dll",
+        "lib/net35/EngineIoClientDotNet.dll",
+        "lib/net40/EngineIoClientDotNet.dll",
+        "lib/net45/EngineIoClientDotNet.dll",
+        "lib/netcore45/EngineIoClientDotNet.dll",
+        "lib/portable-win81+wpa81/EngineIoClientDotNet.dll",
+        "lib/portable-wpa81+wp81/EngineIoClientDotNet.dll",
+        "lib/windowsphone8/EngineIoClientDotNet.dll",
+        "lib/xamarinios10/EngineIoClientDotNet.dll"
+      ]
+    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -16137,6 +16570,28 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "Newtonsoft.Json/8.0.1": {
+      "sha512": "qFzqzune1D7hDz8kNavFwrJ0fv8qkwANGyUOPjP0I67DmNH04nmSCRB0g0LCIqogMKrBXjsiP43Z0E1huBvxOg==",
+      "type": "package",
+      "path": "newtonsoft.json/8.0.1",
+      "files": [
+        "Newtonsoft.Json.8.0.1.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "tools/install.ps1"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -17099,6 +17554,25 @@
         "runtime.win8-arm.runtime.native.system.io.compression.4.0.1.nupkg.sha512",
         "runtime.win8-arm.runtime.native.system.io.compression.nuspec",
         "runtimes/win8-arm/native/clrcompression.dll"
+      ]
+    },
+    "SocketIoClientDotNet/0.9.13": {
+      "sha512": "0U1gOjIYNLLeEabCinglXOeY7QyVPMmvE6DRtHgwhq2H8zglPUXIpbbG74FmRVZhDA8ryATpArTeHcT/CP6xXA==",
+      "type": "package",
+      "path": "socketioclientdotnet/0.9.13",
+      "files": [
+        "SocketIOClientDotNet.0.9.13.nupkg.sha512",
+        "SocketIOClientDotNet.nuspec",
+        "lib/monoandroid10/SocketIoClientDotNet.dll",
+        "lib/monotouch10/SocketIoClientDotNet.dll",
+        "lib/net35/SocketIoClientDotNet.dll",
+        "lib/net40/SocketIoClientDotNet.dll",
+        "lib/net45/SocketIoClientDotNet.dll",
+        "lib/netcore45/SocketIoClientDotNet.dll",
+        "lib/portable-win81+wpa81/SocketIoClientDotNet.dll",
+        "lib/portable-wpa81+wp81/SocketIoClientDotNet.dll",
+        "lib/windowsphone8/SocketIoClientDotNet.dll",
+        "lib/xamarinios10/SocketIoClientDotNet.dll"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -22002,11 +22476,35 @@
         "system.xml.xmlserializer.4.0.11.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "WebRtc/1.54.2": {
+      "sha512": "rtdShmJXf/CwZ7t0pYmjWqtDpfg1bNpuNP3BJJugqMolUjil3Y7fdbwjB7qPEYZFkXQPDigm6qY2TISpv8UFHQ==",
+      "type": "package",
+      "path": "webrtc/1.54.2",
+      "files": [
+        "WebRtc.1.54.2.nupkg.sha512",
+        "WebRtc.nuspec",
+        "build/native/WebRtc.targets",
+        "lib/uap10.0/Org.WebRtc.winmd",
+        "lib/uap10.0/Org.WebRtc.xml",
+        "runtimes/win10-arm/native/Org.WebRtc.dll",
+        "runtimes/win10-arm/native/Org.WebRtc.pri",
+        "runtimes/win10-x64/native/Org.WebRtc.dll",
+        "runtimes/win10-x64/native/Org.WebRtc.pri",
+        "runtimes/win10-x86/native/Org.WebRtc.dll",
+        "runtimes/win10-x86/native/Org.WebRtc.pri"
+      ]
+    },
+    "WSAUnity/1.0.0": {
+      "type": "project",
+      "path": "../WSAUnity/project.json",
+      "msbuildProject": "../WSAUnity/WSAUnity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.15063": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.3"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.3",
+      "WSAUnity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -22025,7 +22523,11 @@
       ],
       "frameworks": {
         "uap10.0.15063": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj": {
+              "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj"
+            }
+          }
         }
       }
     },

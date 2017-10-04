@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="MentorSystemWebRTC.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MentorSystemWebRTC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="1920" Height="1080">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
+        <Image x:Name="BackgroundImage" Source="Assets/operating_room.jpg" Height="1080"  Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/>
+        <!--MediaElement x:Name="mediaPlayer" Source="Assets/DroneView2.mp4" Width="1920" Height="1080" AutoPlay="True"  Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/-->
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="583" Width="340"/>
+        <MediaPlayerElement x:Name="mediaPlayerElement" AreTransportControlsEnabled="False" Margin="355,47,0,0"  Tapped="imagesPanelTapped" PointerMoved="LineDrawing" PointerExited="LineStopped"/>
+        <Canvas x:Name="imagesPanel" Margin="0,0,0,0">
+        </Canvas>
+        <StackPanel x:Name="contentPanel" Margin="0,0,0,0">
+            <!--TextBlock HorizontalAlignment="Left" Text="Hello World" FontSize="36" FontFamily="Gotham"/>
+            <TextBlock Text="What's your name?" FontFamily="Gotham"/>
+            <StackPanel x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
+                <Button x:Name="inputButton" Content="Say &quot;Hello&quot;" FontFamily="Gotham" Click="Button_Click"/>
+            </StackPanel-->
+            <Button x:Name="buttonWebRTC" Content="Init and Start WebRTC" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="button_Click"/>
+            <TextBlock x:Name="greetingOutput"/>
+            <!--Rectangle x:Name="ColoredRectangle" Fill="#FFF4F4F5" CanDrag="True" HorizontalAlignment="Left" Height="160" Margin="38,290,0,0" Stroke="Black" VerticalAlignment="Top" Width="160" DoubleTapped="Rectangle_DoubleTapped" /-->
+        </StackPanel>
+        <Canvas x:Name="drawingPanel" HorizontalAlignment="Left" Height="1080" Margin="0,0,0,0" Width="1920"/>
+        <Pivot x:Name="PivotPanel" Margin="0,939,876,0" Background="#7F706E6E" HeaderTemplate="{StaticResource GothamHeader}">
+            <PivotItem Header="Tools">
+                <GridView x:Name="ToolsPanel">
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage1" Height="75" Width="75" Source="Assets/bvm.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage2" Height="75" Width="75" Source="Assets/ettube.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage3" Height="75" Width="75" Source="Assets/hemostat.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage4" Height="75" Width="75" Source="Assets/iodineswab.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage5" Height="75" Width="75" Source="Assets/longhook.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage6" Height="75" Width="75" Source="Assets/retractor.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage7" Height="75" Width="75" Source="Assets/scalpel.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage8" Height="75" Width="75" Source="Assets/scissors.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage9" Height="75" Width="75" Source="Assets/stethoscope.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage10" Height="75" Width="75" Source="Assets/surgicaltape.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage11" Height="75" Width="75" Source="Assets/syringe.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage12" Height="75" Width="75" Source="Assets/tweezers.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                </GridView>
+            </PivotItem>
+            <PivotItem Header="Hands">
+                <GridView x:Name="HandsPanel">
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage13" Height="75" Width="75" Source="Assets/hand_palpate.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage14" Height="75" Width="75" Source="Assets/hand_point.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage15" Height="75" Width="75" Source="Assets/hand_stretch.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                </GridView>
+            </PivotItem>
+            <PivotItem Header="Texts">
+                <GridView x:Name="TextsPanel">
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage16" Height="75" Width="75" Source="Assets/text_close.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage17" Height="75" Width="75" Source="Assets/text_incision.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage18" Height="75" Width="75" Source="Assets/text_palpation.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage19" Height="75" Width="75" Source="Assets/text_remove.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                    <Border BorderBrush="LightGray" BorderThickness="3">
+                        <Image x:Name="iconPanelImage20" Height="75" Width="75" Source="Assets/text_stitch.png" Tapped="iconPanelImageTapped"/>
+                    </Border>
+                </GridView>
+            </PivotItem>
+        </Pivot>
+        <Image x:Name="TrashBinOpenImage" Source="Assets/trash_bin_open.png" Margin="1044,907,693,8" Opacity="0"/>
+        <Image x:Name="TrashBinClosedImage" Source="Assets/trash_bin_closed.png" Height="130" Margin="1077,942,705,8" PointerEntered="PointerOverTrashBin" PointerExited="PointerLeftTrashBin"/>
+        <Border x:Name="buttonLinesBorder" BorderBrush="LightGray" BorderThickness="3" Height="130" Background="#FFB6AFAF" Width="130" CornerRadius="15" Margin="1242,941,538,5">
+            <ToggleButton x:Name="buttonLines" Content="Lines" Height="116" VerticalAlignment="Top" Width="113" FontSize="32" FontFamily="Gotham" Margin="6,5,0,0" Background="#FFB6AFAF" Checked="LinesButtonChecked" Unchecked="LinesButtonUnchecked"/>
+        </Border>
+        <Border x:Name="buttonPointsBorder" BorderBrush="LightGray" BorderThickness="3" Height="130" Background="#FFB6AFAF" Width="130" CornerRadius="15" Margin="1412,941,368,5">
+            <ToggleButton x:Name="buttonPoints" Content="Points" Height="114" VerticalAlignment="Top" Width="116" FontSize="32" FontFamily="Gotham" Margin="4,5,0,0" Background="#FFB6AFAF" Checked="PointsButtonChecked" Unchecked="PointsButtonUnchecked"/>
+        </Border>
+        <Border BorderBrush="LightGray" BorderThickness="3" Height="130" Background="#FFB6AFAF" Width="130" CornerRadius="15" Margin="1582,941,198,5">
+            <Button x:Name="buttonEraseAll" Content="Erase&#x0a; ALL" Height="116" VerticalAlignment="Top" Width="113" FontSize="32" FontFamily="Gotham" Margin="6,5,0,0" Background="#FFB6AFAF" Click="EraseAllButtonClicked"/>
+        </Border>
+        <Border BorderBrush="LightGray" BorderThickness="3" Height="130" Background="#FFB6AFAF" Width="130" CornerRadius="15" Margin="1752,941,28,5">
+            <Button x:Name="buttonExit" Content="Exit" Height="116" VerticalAlignment="Top" Width="113" FontSize="32" FontFamily="Gotham" Margin="6,5,0,0" Background="#FFB6AFAF" Click="ExitButtonClicked"/>
+        </Border>
+    </Grid>
+</Page>

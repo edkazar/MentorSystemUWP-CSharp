@@ -1,0 +1,12 @@
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WinPluginTest\Assets\Plugins\WSAUnity.dll.config
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WinPluginTest\Assets\Plugins\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WinPluginTest\Assets\Plugins\WSAUnity.pdb
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WSAUnity\WSAStub\obj\Debug\WSAStub.csprojResolveAssemblyReference.cache
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WSAUnity\WSAStub\obj\Debug\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WSAUnity\WSAStub\obj\Debug\WSAUnity.pdb
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\WinPluginTest\Assets\Plugins\WSAUnity.dll.config
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\WinPluginTest\Assets\Plugins\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\WinPluginTest\Assets\Plugins\WSAUnity.pdb
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Debug\WSAStub.csprojResolveAssemblyReference.cache
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Debug\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Debug\WSAUnity.pdb

@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9A208FE13D255BA9177BD1041ED594C5DFEA3C8A95C900EC5A23E1EF6FD7B046</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F1BB6C6FD5D3A548BD99398EA30798F23D0A123D90B6E0AA6D43B0B9FB087F48</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>cbafb651-1070-4791-8c1a-63e58a042655_1.0.0.0_x86__pebf7bf32kpfg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>cbafb651-1070-4791-8c1a-63e58a042655_pebf7bf32kpfg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>cbafb651-1070-4791-8c1a-63e58a042655</RegisteredPackageID>
@@ -31,13 +31,17 @@
     <AppXManifest Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-04T16:50:05.130</Modified>
+      <Modified>2017-10-04T15:29:58.445</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.exe">
       <PackagePath>entrypoint\MentorSystem.exe</PackagePath>
-      <Modified>2017-09-04T16:50:03.835</Modified>
+      <Modified>2017-10-04T15:29:57.490</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\EngineIoClientDotNet\0.9.22\lib\netcore45\EngineIoClientDotNet.dll">
+      <PackagePath>EngineIoClientDotNet.dll</PackagePath>
+      <Modified>2016-01-04T10:14:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -94,6 +98,10 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\Microsoft.VisualBasic\10.0.1\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
       <Modified>2016-06-12T03:13:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\Newtonsoft.Json\8.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2015-12-29T18:46:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\runtime.any.System.Collections\4.0.11\lib\netcore50\System.Collections.dll">
       <PackagePath>System.Collections.dll</PackagePath>
@@ -198,6 +206,10 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\runtime.win7.System.Private.Uri\4.0.2\runtimes\win\lib\netcore50\System.Private.Uri.dll">
       <PackagePath>System.Private.Uri.dll</PackagePath>
       <Modified>2016-07-01T19:48:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\SocketIoClientDotNet\0.9.13\lib\netcore45\SocketIoClientDotNet.dll">
+      <PackagePath>SocketIoClientDotNet.dll</PackagePath>
+      <Modified>2016-01-04T11:46:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\System.AppContext\4.1.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -495,6 +507,18 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-12T03:15:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\WebRtc\1.54.2\runtimes\win10-x86\native\Org.WebRtc.dll">
+      <PackagePath>Org.WebRtc.dll</PackagePath>
+      <Modified>2017-04-11T09:00:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\WSAUnity\bin\x86\Debug\WSAUnity.dll">
+      <PackagePath>WSAUnity.dll</PackagePath>
+      <Modified>2017-10-04T14:38:10.270</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\WebRtc\1.54.2\lib\uap10.0\Org.WebRtc.winmd">
+      <PackagePath>Org.WebRtc.winmd</PackagePath>
+      <Modified>2017-04-11T09:00:16.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\Assets\bvm.png">
       <PackagePath>Assets\bvm.png</PackagePath>
       <Modified>2017-06-08T20:27:11.130</Modified>
@@ -656,7 +680,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\MentorSystem.xr.xml">
       <PackagePath>MentorSystem.xr.xml</PackagePath>
-      <Modified>2017-09-04T16:50:03.583</Modified>
+      <Modified>2017-10-04T15:29:57.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -665,11 +689,11 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-04T16:50:04.791</Modified>
+      <Modified>2017-10-04T15:29:58.179</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystem\bin\x86\Debug\Core\MentorSystem.exe">
       <PackagePath>MentorSystem.exe</PackagePath>
-      <Modified>2017-09-04T16:50:05.123</Modified>
+      <Modified>2017-10-04T15:29:58.437</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
