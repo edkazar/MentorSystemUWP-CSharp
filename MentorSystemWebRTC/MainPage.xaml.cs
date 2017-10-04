@@ -107,12 +107,14 @@ namespace MentorSystemWebRTC
 
             // comment these out if not needed
             //Messenger.AddListener<string>(SympleLog.LogTrace, OnLog);
-            Messenger.AddListener<string>(SympleLog.LogDebug, OnLog);
+            /*Messenger.AddListener<string>(SympleLog.LogDebug, OnLog);
             Messenger.AddListener<string>(SympleLog.LogInfo, OnLog);
-            Messenger.AddListener<string>(SympleLog.LogError, OnLog);
+            Messenger.AddListener<string>(SympleLog.LogError, OnLog);*/
 
             Messenger.AddListener<IMediaSource>(SympleLog.CreatedMediaSource, OnCreatedMediaSource);
             Messenger.AddListener(SympleLog.DestroyedMediaSource, OnDestroyedMediaSource);
+
+            starWebrtcContext.initAndStartWebRTC();
         }
 
         private void OnDestroyedMediaSource()
@@ -150,7 +152,7 @@ namespace MentorSystemWebRTC
 
         }
 
-        private void OnLog(string msg)
+        /*private void OnLog(string msg)
         {
             Debug.WriteLine(msg);
 
@@ -163,14 +165,14 @@ namespace MentorSystemWebRTC
             }
             );
 
-        }
+        }*/
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        /*private async void button_Click(object sender, RoutedEventArgs e)
         {
             buttonWebRTC.IsEnabled = false;
 
             starWebrtcContext.initAndStartWebRTC();
-        }
+        }*/
 
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
@@ -370,9 +372,6 @@ namespace MentorSystemWebRTC
 
         private void EraseAllButtonClicked(object sender, RoutedEventArgs e)
         {
-
-
-            //var myKids = imagesPanel.Children;
             foreach (UIElement element in imagesPanel.Children)
             {
                 Image thisImage = element as Image;
@@ -591,7 +590,7 @@ namespace MentorSystemWebRTC
          */
         private string RetrieveAnnotationName(Uri iconUri)
         {
-            greetingOutput.Text = iconUri.ToString();
+            //greetingOutput.Text = iconUri.ToString();
             string path = iconUri.ToString();
             string[] parts = path.Split('.');
             string[] finalParts = parts.First().Split('/');
