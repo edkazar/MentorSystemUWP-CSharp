@@ -40,7 +40,7 @@ using WSAUnity;
 
 namespace MentorSystemWebRTC
 {
-    /// <summary>
+    /// <summary>   
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
@@ -62,6 +62,7 @@ namespace MentorSystemWebRTC
 
         private Polyline LineAnnotation;
         private int AnnotationCounter;
+        private int AnnotationThreshold;
 
         ///////////////// Variables for the socket communication
         private StreamSocketListener tcpVideoListener;
@@ -87,6 +88,7 @@ namespace MentorSystemWebRTC
             CreateButtonsColor();
 
             AnnotationCounter = 0;
+            AnnotationThreshold = 0;
             ResetLineAnnotation();
 
             deleteTempFiles();
@@ -106,10 +108,10 @@ namespace MentorSystemWebRTC
             // right after creating the context (before starting the connections), we could edit some parameters such as the signalling server
 
             // comment these out if not needed
-            //Messenger.AddListener<string>(SympleLog.LogTrace, OnLog);
-            /*Messenger.AddListener<string>(SympleLog.LogDebug, OnLog);
+            Messenger.AddListener<string>(SympleLog.LogTrace, OnLog);
+            Messenger.AddListener<string>(SympleLog.LogDebug, OnLog);
             Messenger.AddListener<string>(SympleLog.LogInfo, OnLog);
-            Messenger.AddListener<string>(SympleLog.LogError, OnLog);*/
+            Messenger.AddListener<string>(SympleLog.LogError, OnLog);
 
             Messenger.AddListener<IMediaSource>(SympleLog.CreatedMediaSource, OnCreatedMediaSource);
             Messenger.AddListener(SympleLog.DestroyedMediaSource, OnDestroyedMediaSource);
@@ -152,7 +154,7 @@ namespace MentorSystemWebRTC
 
         }
 
-        /*private void OnLog(string msg)
+        private void OnLog(string msg)
         {
             Debug.WriteLine(msg);
 
@@ -161,11 +163,11 @@ namespace MentorSystemWebRTC
             () =>
             {
                 // Your UI update code goes here!
-                textBox.Text += msg + "\n";
+                Debug.WriteLine(msg + "\n");
             }
             );
 
-        }*/
+        }
 
         /*private async void button_Click(object sender, RoutedEventArgs e)
         {
@@ -309,7 +311,11 @@ namespace MentorSystemWebRTC
         {
             if (buttonLines.IsChecked.Value)
             {
-                LineAnnotation.Points.Add(new Point(e.GetCurrentPoint(imagesPanel).Position.X, e.GetCurrentPoint(imagesPanel).Position.Y));
+                if(AnnotationThreshold%5==0)
+                {
+                    LineAnnotation.Points.Add(new Point(e.GetCurrentPoint(imagesPanel).Position.X, e.GetCurrentPoint(imagesPanel).Position.Y));
+                }
+                AnnotationThreshold++;
             }
         }
 
@@ -435,6 +441,8 @@ namespace MentorSystemWebRTC
          */
         private void ResetLineAnnotation()
         {
+            AnnotationThreshold = 0;
+
             // Touch manipulation handlers for the line
             LineAnnotation = new Polyline();
             LineAnnotation.Stroke = new SolidColorBrush(Windows.UI.Colors.Aquamarine);

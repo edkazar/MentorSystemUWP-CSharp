@@ -267,7 +267,7 @@ namespace MentorSystemWebRTC.MentorClasses
             if (JsonSocket != null)
             {
                 Stream outStream = JsonSocket.OutputStream.AsStreamForWrite();
-                StreamWriter writer = new StreamWriter(outStream);
+                StreamWriter writer = new StreamWriter(outStream, System.Text.Encoding.ASCII, 100000);
                 await writer.WriteLineAsync(string_to_send);
                 await writer.FlushAsync();
             }

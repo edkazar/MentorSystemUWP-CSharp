@@ -1,0 +1,6 @@
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\bin\Release\WSAUnity.dll.config
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\bin\Release\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\bin\Release\WSAUnity.pdb
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Release\WSAStub.csprojResolveAssemblyReference.cache
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Release\WSAUnity.dll
+C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAStub\obj\Release\WSAUnity.pdb

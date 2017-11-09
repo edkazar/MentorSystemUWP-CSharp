@@ -298,6 +298,35 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/opencv_core310.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-arm/native/opencv_core310d.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/opencv_core310.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x64/native/opencv_core310d.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/opencv_core310.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          },
+          "runtimes/win10-x86/native/opencv_core310d.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
+      },
       "SocketIoClientDotNet/0.9.13": {
         "type": "package",
         "dependencies": {
@@ -2202,6 +2231,13 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-arm/native/opencv_core310.dll": {},
+          "runtimes/win10-arm/native/opencv_core310d.dll": {}
+        }
+      },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -3999,6 +4035,13 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-arm/native/opencv_core310.dll": {},
+          "runtimes/win10-arm/native/opencv_core310d.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -5761,6 +5804,13 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-x64/native/opencv_core310.dll": {},
+          "runtimes/win10-x64/native/opencv_core310d.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -7563,6 +7613,13 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-x64/native/opencv_core310.dll": {},
+          "runtimes/win10-x64/native/opencv_core310d.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -9325,6 +9382,13 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-x86/native/opencv_core310.dll": {},
+          "runtimes/win10-x86/native/opencv_core310d.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -11125,6 +11189,13 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OpenCV.Win.Core/310.6.1": {
+        "type": "package",
+        "native": {
+          "runtimes/win10-x86/native/opencv_core310.dll": {},
+          "runtimes/win10-x86/native/opencv_core310d.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -13278,6 +13349,114 @@
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "OpenCV.Win.Core/310.6.1": {
+      "sha512": "3QYee3UT4kRLWOhze2CCZXOfFoB0VjDsiGntr0EUn/nlc6h8anwrHwhCx6x5ks8Jbg2tCV909XTtUV+beaJzWw==",
+      "type": "package",
+      "path": "opencv.win.core/310.6.1",
+      "files": [
+        "build/native/opencv.win.core.targets",
+        "build/native/win10-arm/opencv_core310.lib",
+        "build/native/win10-arm/opencv_core310d.lib",
+        "build/native/win10-x64/opencv_core310.lib",
+        "build/native/win10-x64/opencv_core310d.lib",
+        "build/native/win10-x86/opencv_core310.lib",
+        "build/native/win10-x86/opencv_core310d.lib",
+        "include/opencv/cv.h",
+        "include/opencv/cv.hpp",
+        "include/opencv/cvaux.h",
+        "include/opencv/cvaux.hpp",
+        "include/opencv/cvwimage.h",
+        "include/opencv/cxcore.h",
+        "include/opencv/cxcore.hpp",
+        "include/opencv/cxeigen.hpp",
+        "include/opencv/cxmisc.h",
+        "include/opencv/highgui.h",
+        "include/opencv/ml.h",
+        "include/opencv2/core.hpp",
+        "include/opencv2/core/affine.hpp",
+        "include/opencv2/core/base.hpp",
+        "include/opencv2/core/bufferpool.hpp",
+        "include/opencv2/core/core.hpp",
+        "include/opencv2/core/core_c.h",
+        "include/opencv2/core/cuda.hpp",
+        "include/opencv2/core/cuda.inl.hpp",
+        "include/opencv2/core/cuda/block.hpp",
+        "include/opencv2/core/cuda/border_interpolate.hpp",
+        "include/opencv2/core/cuda/color.hpp",
+        "include/opencv2/core/cuda/common.hpp",
+        "include/opencv2/core/cuda/datamov_utils.hpp",
+        "include/opencv2/core/cuda/detail/color_detail.hpp",
+        "include/opencv2/core/cuda/detail/reduce.hpp",
+        "include/opencv2/core/cuda/detail/reduce_key_val.hpp",
+        "include/opencv2/core/cuda/detail/transform_detail.hpp",
+        "include/opencv2/core/cuda/detail/type_traits_detail.hpp",
+        "include/opencv2/core/cuda/detail/vec_distance_detail.hpp",
+        "include/opencv2/core/cuda/dynamic_smem.hpp",
+        "include/opencv2/core/cuda/emulation.hpp",
+        "include/opencv2/core/cuda/filters.hpp",
+        "include/opencv2/core/cuda/funcattrib.hpp",
+        "include/opencv2/core/cuda/functional.hpp",
+        "include/opencv2/core/cuda/limits.hpp",
+        "include/opencv2/core/cuda/reduce.hpp",
+        "include/opencv2/core/cuda/saturate_cast.hpp",
+        "include/opencv2/core/cuda/scan.hpp",
+        "include/opencv2/core/cuda/simd_functions.hpp",
+        "include/opencv2/core/cuda/transform.hpp",
+        "include/opencv2/core/cuda/type_traits.hpp",
+        "include/opencv2/core/cuda/utility.hpp",
+        "include/opencv2/core/cuda/vec_distance.hpp",
+        "include/opencv2/core/cuda/vec_math.hpp",
+        "include/opencv2/core/cuda/vec_traits.hpp",
+        "include/opencv2/core/cuda/warp.hpp",
+        "include/opencv2/core/cuda/warp_reduce.hpp",
+        "include/opencv2/core/cuda/warp_shuffle.hpp",
+        "include/opencv2/core/cuda_stream_accessor.hpp",
+        "include/opencv2/core/cuda_types.hpp",
+        "include/opencv2/core/cvdef.h",
+        "include/opencv2/core/cvstd.hpp",
+        "include/opencv2/core/cvstd.inl.hpp",
+        "include/opencv2/core/directx.hpp",
+        "include/opencv2/core/eigen.hpp",
+        "include/opencv2/core/fast_math.hpp",
+        "include/opencv2/core/hal/hal.hpp",
+        "include/opencv2/core/hal/interface.h",
+        "include/opencv2/core/hal/intrin.hpp",
+        "include/opencv2/core/hal/intrin_cpp.hpp",
+        "include/opencv2/core/hal/intrin_neon.hpp",
+        "include/opencv2/core/hal/intrin_sse.hpp",
+        "include/opencv2/core/ippasync.hpp",
+        "include/opencv2/core/mat.hpp",
+        "include/opencv2/core/mat.inl.hpp",
+        "include/opencv2/core/matx.hpp",
+        "include/opencv2/core/neon_utils.hpp",
+        "include/opencv2/core/ocl.hpp",
+        "include/opencv2/core/ocl_genbase.hpp",
+        "include/opencv2/core/opengl.hpp",
+        "include/opencv2/core/operations.hpp",
+        "include/opencv2/core/optim.hpp",
+        "include/opencv2/core/persistence.hpp",
+        "include/opencv2/core/private.cuda.hpp",
+        "include/opencv2/core/private.hpp",
+        "include/opencv2/core/ptr.inl.hpp",
+        "include/opencv2/core/saturate.hpp",
+        "include/opencv2/core/sse_utils.hpp",
+        "include/opencv2/core/traits.hpp",
+        "include/opencv2/core/types.hpp",
+        "include/opencv2/core/types_c.h",
+        "include/opencv2/core/utility.hpp",
+        "include/opencv2/core/va_intel.hpp",
+        "include/opencv2/core/version.hpp",
+        "include/opencv2/core/wimage.hpp",
+        "opencv.win.core.310.6.1.nupkg.sha512",
+        "opencv.win.core.nuspec",
+        "runtimes/win10-arm/native/opencv_core310.dll",
+        "runtimes/win10-arm/native/opencv_core310d.dll",
+        "runtimes/win10-x64/native/opencv_core310.dll",
+        "runtimes/win10-x64/native/opencv_core310d.dll",
+        "runtimes/win10-x86/native/opencv_core310.dll",
+        "runtimes/win10-x86/native/opencv_core310d.dll"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -16096,13 +16275,14 @@
     },
     "WSAUnity/1.0.0": {
       "type": "project",
-      "path": "../WSAUnity/project.json",
-      "msbuildProject": "../WSAUnity/WSAUnity.csproj"
+      "path": "../../../../GitHub/DanWebRTC/WSAUnity/WSAUnity/project.json",
+      "msbuildProject": "../../../../GitHub/DanWebRTC/WSAUnity/WSAUnity/WSAUnity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
+      "OpenCV.Win.Core >= 310.6.1"
     ],
     "UAP,Version=v10.0": []
   },
@@ -16119,15 +16299,16 @@
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj": {
-              "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj"
+            "C:\\Users\\M2M ADMIN\\Documents\\GitHub\\DanWebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj": {
+              "projectPath": "C:\\Users\\M2M ADMIN\\Documents\\GitHub\\DanWebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj"
             }
           }
         }
       }
     },
     "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+      "OpenCV.Win.Core": "310.6.1"
     },
     "frameworks": {
       "uap10.0": {}

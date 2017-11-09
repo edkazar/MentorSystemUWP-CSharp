@@ -165,12 +165,6 @@
   <ItemGroup>
     <Folder Include="JSON_Files\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WSAUnity\WSAUnity.csproj">
-      <Project>{5635cf03-fd91-43f0-b839-94d9e9f7816e}</Project>
-      <Name>WSAUnity</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

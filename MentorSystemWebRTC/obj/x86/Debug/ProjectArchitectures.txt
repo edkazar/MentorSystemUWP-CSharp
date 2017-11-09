@@ -1,2 +1,2 @@
-C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\MentorSystemWebRTC.csproj;x86
-C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\WSAUnity\WSAUnity.csproj;x86
+C:\Users\M2M ADMIN\documents\GitHub\DanWebRTC\WSAUnity\WSAUnity\WSAUnity.csproj;x86
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\MentorSystemWebRTC.csproj;x86

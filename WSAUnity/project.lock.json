@@ -16045,10 +16045,10 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj",
+      "projectUniqueName": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj",
       "projectName": "WSAUnity",
-      "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj",
-      "projectJsonPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\WSAUnity\\project.json",
+      "projectPath": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\WSAUnity\\WSAUnity.csproj",
+      "projectJsonPath": "C:\\Users\\M2M ADMIN\\Documents\\Visual Studio 2017\\Projects\\MentorSystem\\WSAUnity\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

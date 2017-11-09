@@ -202,3 +202,5 @@ C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSyst
 C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\Core\MentorSystemWebRTC.exe
 C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\obj\x86\Debug\MentorSystemWebRTC.exe
 C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\obj\x86\Debug\MentorSystemWebRTC.pdb
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\opencv_core310.dll
+C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\opencv_core310d.dll
