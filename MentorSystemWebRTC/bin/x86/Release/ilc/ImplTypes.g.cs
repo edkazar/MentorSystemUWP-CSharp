@@ -47383,6 +47383,41 @@ namespace Windows.UI.Xaml
 				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
 			}
 
+			// Signature, Windows.UI.Xaml.IUIElement.get_Visibility, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [out] [retval] [nativebyref] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Visibility__Windows_UI_Xaml__Visibility, 
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static global::Windows.UI.Xaml.Visibility get_Visibility(global::System.__ComObject __this)
+			{
+				// Setup
+				global::Windows.UI.Xaml.Visibility unsafe_value__retval;
+				global::Windows.UI.Xaml.Visibility value__retval;
+				int unsafe___return__;
+				// Marshalling
+				// Call to native method
+				unsafe___return__ = global::McgInterop.ComCallHelpers.ComCall__HRESULT(
+									__this, 
+									typeof(global::Windows.UI.Xaml.IUIElement).TypeHandle, 
+									global::Windows.UI.Xaml.IUIElement__Impl.Vtbl.idx_get_Visibility, 
+									&(unsafe_value__retval)
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				value__retval = unsafe_value__retval;
+				// Return
+				return value__retval;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_Visibility(
+						global::System.__ComObject __this, 
+						global::Windows.UI.Xaml.Visibility value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_int<global::Windows.UI.Xaml.IUIElement>(
+									__this, 
+									((int)value), 
+									global::Windows.UI.Xaml.IUIElement__Impl.Vtbl.idx_put_Visibility
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
 			// Signature, Windows.UI.Xaml.IUIElement.put_ManipulationMode, [fwd] [return] [Mcg.CodeGen.ComHRESULTReturnMarshaller] void__int, [fwd] [in] [Mcg.CodeGen.EnumMarshaller] Windows_UI_Xaml_Input_ManipulationModes__Windows_UI_Xaml_Input__ManipulationModes, 
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 			public static void put_ManipulationMode(
@@ -48363,6 +48398,26 @@ namespace Windows.UI.Xaml
 			}
 
 			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.IUIElement.Visibility")]
+			global::Windows.UI.Xaml.Visibility global::Windows.UI.Xaml.IUIElement.get_Visibility()
+			{
+				global::Windows.UI.Xaml.Visibility __retVal = global::Windows.UI.Xaml.IUIElement__Impl.StubClass.get_Visibility(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.IUIElement.Visibility")]
+			void global::Windows.UI.Xaml.IUIElement.put_Visibility(global::Windows.UI.Xaml.Visibility value)
+			{
+				global::Windows.UI.Xaml.IUIElement__Impl.StubClass.put_Visibility(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.IUIElement.ManipulationMode")]
 			void global::Windows.UI.Xaml.IUIElement.put_ManipulationMode(global::Windows.UI.Xaml.Input.ManipulationModes value)
 			{
@@ -48968,6 +49023,8 @@ namespace Windows.UI.Xaml
 			internal const int idx_put_Opacity = 10;
 			internal const int idx_get_RenderTransform = 13;
 			internal const int idx_put_RenderTransform = 14;
+			internal const int idx_get_Visibility = 21;
+			internal const int idx_put_Visibility = 22;
 			internal const int idx_put_ManipulationMode = 39;
 			internal const int idx_add_KeyUp = 41;
 			internal const int idx_remove_KeyUp = 42;
@@ -63309,6 +63366,167 @@ namespace Windows.UI.Xaml.Media
 		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IImageSource))]
 		public unsafe partial struct Vtbl
 		{
+		}
+	}
+
+	// Windows.UI.Xaml.Media.IScaleTransform
+	public unsafe static class IScaleTransform__Impl
+	{
+		// StubClass for 'Windows.UI.Xaml.Media.IScaleTransform'
+		public static partial class StubClass
+		{
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_CenterX(
+						global::System.__ComObject __this, 
+						double value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_put_CenterX
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_CenterY(
+						global::System.__ComObject __this, 
+						double value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_put_CenterY
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static double get_ScaleX(global::System.__ComObject __this)
+			{
+				double __ret = global::McgInterop.ForwardComSharedStubs.Func_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_get_ScaleX
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_ScaleX(
+						global::System.__ComObject __this, 
+						double value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_put_ScaleX
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static double get_ScaleY(global::System.__ComObject __this)
+			{
+				double __ret = global::McgInterop.ForwardComSharedStubs.Func_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_get_ScaleY
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __ret;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			public static void put_ScaleY(
+						global::System.__ComObject __this, 
+						double value)
+			{
+				global::McgInterop.ForwardComSharedStubs.Proc_double__<global::Windows.UI.Xaml.Media.IScaleTransform>(
+									__this, 
+									value, 
+									global::Windows.UI.Xaml.Media.IScaleTransform__Impl.Vtbl.idx_put_ScaleY
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// DispatchClass for 'Windows.UI.Xaml.Media.IScaleTransform'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IScaleTransform))]
+		public abstract partial class DispatchClass : global::System.__ComObject, global::Windows.UI.Xaml.Media.IScaleTransform
+		{
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Media.IScaleTransform.CenterX")]
+			void global::Windows.UI.Xaml.Media.IScaleTransform.put_CenterX(double value)
+			{
+				global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.put_CenterX(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Media.IScaleTransform.CenterY")]
+			void global::Windows.UI.Xaml.Media.IScaleTransform.put_CenterY(double value)
+			{
+				global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.put_CenterY(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Media.IScaleTransform.ScaleX")]
+			double global::Windows.UI.Xaml.Media.IScaleTransform.get_ScaleX()
+			{
+				double __retVal = global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.get_ScaleX(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Media.IScaleTransform.ScaleX")]
+			void global::Windows.UI.Xaml.Media.IScaleTransform.put_ScaleX(double value)
+			{
+				global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.put_ScaleX(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "Windows.UI.Xaml.Media.IScaleTransform.ScaleY")]
+			double global::Windows.UI.Xaml.Media.IScaleTransform.get_ScaleY()
+			{
+				double __retVal = global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.get_ScaleY(this);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+				return __retVal;
+			}
+
+			[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+			[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "Windows.UI.Xaml.Media.IScaleTransform.ScaleY")]
+			void global::Windows.UI.Xaml.Media.IScaleTransform.put_ScaleY(double value)
+			{
+				global::Windows.UI.Xaml.Media.IScaleTransform__Impl.StubClass.put_ScaleY(
+									this, 
+									value
+								);
+				global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			}
+		}
+
+		// v-table for 'Windows.UI.Xaml.Media.IScaleTransform'
+		[global::System.Runtime.CompilerServices.DependencyReductionConditionallyDependent(typeof(global::Windows.UI.Xaml.Media.IScaleTransform))]
+		public unsafe partial struct Vtbl
+		{
+			internal const int idx_put_CenterX = 7;
+			internal const int idx_put_CenterY = 9;
+			internal const int idx_get_ScaleX = 10;
+			internal const int idx_put_ScaleX = 11;
+			internal const int idx_get_ScaleY = 12;
+			internal const int idx_put_ScaleY = 13;
 		}
 	}
 

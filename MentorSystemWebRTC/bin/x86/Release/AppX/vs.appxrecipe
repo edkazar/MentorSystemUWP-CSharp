@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>a1434dac-c45f-4992-bc6a-bae47adff49b</PackageIdentityName>
     <PackageIdentityPublisher>CN=ANDERSED</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\obj\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>0DF82220133986A2EB09C9EC66DF6DB24D91D752D4946099DFA69F13BBD437B4</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\AppX</LayoutDir>
+    <RegisteredManifestChecksum>EAF970C258E8E1CAC43E4EDF5CF9820888B32F6C8C677476C0E218F3993F52B7</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a1434dac-c45f-4992-bc6a-bae47adff49b_1.0.0.0_x86__ysyedjga9wvhj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a1434dac-c45f-4992-bc6a-bae47adff49b_ysyedjga9wvhj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a1434dac-c45f-4992-bc6a-bae47adff49b</RegisteredPackageID>
@@ -28,204 +28,204 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-06T16:30:29.974</Modified>
+      <Modified>2017-11-28T16:38:56.824</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\bvm.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\bvm.png">
       <PackagePath>Assets\bvm.png</PackagePath>
       <Modified>2017-06-08T20:27:11.130</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\DroneView2.mp4">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\DroneView2.mp4">
       <PackagePath>Assets\DroneView2.mp4</PackagePath>
       <Modified>2017-08-26T21:20:51.505</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\ettube.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\ettube.png">
       <PackagePath>Assets\ettube.png</PackagePath>
       <Modified>2017-06-08T20:27:41.501</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_palpate.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_palpate.png">
       <PackagePath>Assets\hand_palpate.png</PackagePath>
       <Modified>2017-06-08T20:57:37.545</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_point.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_point.png">
       <PackagePath>Assets\hand_point.png</PackagePath>
       <Modified>2017-06-08T20:58:56.434</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_stretch.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hand_stretch.png">
       <PackagePath>Assets\hand_stretch.png</PackagePath>
       <Modified>2017-06-04T21:27:18.041</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hemostat.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\hemostat.png">
       <PackagePath>Assets\hemostat.png</PackagePath>
       <Modified>2017-06-08T20:28:56.664</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\iodineswab.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\iodineswab.png">
       <PackagePath>Assets\iodineswab.png</PackagePath>
       <Modified>2017-06-08T20:29:18.167</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2017-10-03T22:17:21.033</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\longhook.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\longhook.png">
       <PackagePath>Assets\longhook.png</PackagePath>
       <Modified>2017-06-08T20:30:57.643</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\operating_room.jpg">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\operating_room.jpg">
       <PackagePath>Assets\operating_room.jpg</PackagePath>
       <Modified>2017-06-08T16:53:31.935</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\retractor.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\retractor.png">
       <PackagePath>Assets\retractor.png</PackagePath>
       <Modified>2017-06-08T20:33:26.567</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\scalpel.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\scalpel.png">
       <PackagePath>Assets\scalpel.png</PackagePath>
       <Modified>2017-06-08T20:33:45.902</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\scissors.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\scissors.png">
       <PackagePath>Assets\scissors.png</PackagePath>
       <Modified>2017-06-08T20:35:11.300</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\stethoscope.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\stethoscope.png">
       <PackagePath>Assets\stethoscope.png</PackagePath>
       <Modified>2017-06-04T21:27:32.418</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-21T16:20:22.823</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-21T16:20:22.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-21T16:20:22.858</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-21T16:20:22.867</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-21T16:20:22.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\surgicaltape.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\surgicaltape.png">
       <PackagePath>Assets\surgicaltape.png</PackagePath>
       <Modified>2017-08-11T21:20:02.447</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\syringe.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\syringe.png">
       <PackagePath>Assets\syringe.png</PackagePath>
       <Modified>2017-06-08T20:36:47.458</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_close.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_close.png">
       <PackagePath>Assets\text_close.png</PackagePath>
       <Modified>2017-06-08T21:01:26.837</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_incision.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_incision.png">
       <PackagePath>Assets\text_incision.png</PackagePath>
       <Modified>2017-06-08T21:02:30.881</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_palpation.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_palpation.png">
       <PackagePath>Assets\text_palpation.png</PackagePath>
       <Modified>2017-06-08T21:03:32.619</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_remove.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_remove.png">
       <PackagePath>Assets\text_remove.png</PackagePath>
       <Modified>2017-06-08T21:05:03.198</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_stitch.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\text_stitch.png">
       <PackagePath>Assets\text_stitch.png</PackagePath>
       <Modified>2017-06-08T21:06:15.806</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\trash_bin_closed.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\trash_bin_closed.png">
       <PackagePath>Assets\trash_bin_closed.png</PackagePath>
       <Modified>2017-06-19T22:50:14.169</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\trash_bin_open.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\trash_bin_open.png">
       <PackagePath>Assets\trash_bin_open.png</PackagePath>
       <Modified>2017-06-19T23:12:10.692</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\tweezers.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\tweezers.png">
       <PackagePath>Assets\tweezers.png</PackagePath>
       <Modified>2017-06-08T20:37:45.406</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-03T22:17:21.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\ClrCompression.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\ClrCompression.dll">
       <PackagePath>ClrCompression.dll</PackagePath>
       <Modified>2016-10-29T17:26:10.318</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.dll">
       <PackagePath>MentorSystemWebRTC.dll</PackagePath>
-      <Modified>2017-11-06T16:30:29.354</Modified>
+      <Modified>2017-11-28T16:38:56.192</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.exe">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.exe">
       <PackagePath>MentorSystemWebRTC.exe</PackagePath>
-      <Modified>2017-11-06T16:30:29.940</Modified>
+      <Modified>2017-11-28T16:38:56.778</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.pdb">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\MentorSystemWebRTC.pdb">
       <PackagePath>MentorSystemWebRTC.pdb</PackagePath>
-      <Modified>2017-11-06T16:30:29.895</Modified>
+      <Modified>2017-11-28T16:38:56.768</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\opencv_core310.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\opencv_core310.dll">
       <PackagePath>opencv_core310.dll</PackagePath>
       <Modified>2016-11-28T04:54:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\opencv_core310d.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\opencv_core310d.dll">
       <PackagePath>opencv_core310d.dll</PackagePath>
       <Modified>2016-11-28T04:54:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Org.WebRtc.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Org.WebRtc.dll">
       <PackagePath>Org.WebRtc.dll</PackagePath>
       <Modified>2017-04-11T09:00:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Org.WebRtc.winmd">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\Org.WebRtc.winmd">
       <PackagePath>Org.WebRtc.winmd</PackagePath>
       <Modified>2017-04-11T09:00:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\Visual Studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\resources.pri">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-30T21:59:42.102</Modified>
+      <Modified>2017-11-28T03:47:38.922</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

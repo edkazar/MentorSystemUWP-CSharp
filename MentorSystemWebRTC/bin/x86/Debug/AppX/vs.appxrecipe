@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>D8D888FC2D6CF518C2FC7A12CF9C1B4CB50D7B57E232DFA6A5F08AB881860E3C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>719F53CB7AA51291B5F7AD24037B7B4735564BD8C0F57E1AE8C2CAF1C5142B04</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a1434dac-c45f-4992-bc6a-bae47adff49b_1.0.0.0_x86__ysyedjga9wvhj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a1434dac-c45f-4992-bc6a-bae47adff49b_ysyedjga9wvhj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a1434dac-c45f-4992-bc6a-bae47adff49b</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-18T23:15:13.850</Modified>
+      <Modified>2017-11-29T20:54:23.662</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\MentorSystemWebRTC.exe">
       <PackagePath>entrypoint\MentorSystemWebRTC.exe</PackagePath>
-      <Modified>2017-10-18T23:15:11.980</Modified>
+      <Modified>2017-11-29T20:54:20.335</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\EngineIoClientDotNet\0.9.22\lib\netcore45\EngineIoClientDotNet.dll">
       <PackagePath>EngineIoClientDotNet.dll</PackagePath>
@@ -475,9 +475,9 @@
       <PackagePath>Org.WebRtc.dll</PackagePath>
       <Modified>2017-04-11T09:00:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\M2M ADMIN\Documents\GitHub\DanWebRTC\WSAUnity\WSAUnity\bin\x86\Debug\WSAUnity.dll">
+    <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\GitHub\DanWebRTC\WinPluginTest\Assets\Plugins\WSA\WSAUnity.dll">
       <PackagePath>WSAUnity.dll</PackagePath>
-      <Modified>2017-10-18T23:11:06.561</Modified>
+      <Modified>2017-11-29T20:54:18.428</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\.nuget\packages\WebRtc\1.54.2\lib\uap10.0\Org.WebRtc.winmd">
       <PackagePath>Org.WebRtc.winmd</PackagePath>
@@ -644,7 +644,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\MentorSystemWebRTC.xr.xml">
       <PackagePath>MentorSystemWebRTC.xr.xml</PackagePath>
-      <Modified>2017-10-04T17:07:17.657</Modified>
+      <Modified>2017-11-29T20:54:20.067</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -653,11 +653,11 @@
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-18T23:15:12.682</Modified>
+      <Modified>2017-11-29T20:54:22.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\M2M ADMIN\documents\visual studio 2017\Projects\MentorSystem\MentorSystemWebRTC\bin\x86\Debug\Core\MentorSystemWebRTC.exe">
       <PackagePath>MentorSystemWebRTC.exe</PackagePath>
-      <Modified>2017-10-18T23:15:13.844</Modified>
+      <Modified>2017-11-29T20:54:23.653</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

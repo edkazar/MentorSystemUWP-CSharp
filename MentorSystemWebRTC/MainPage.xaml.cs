@@ -64,6 +64,8 @@ namespace MentorSystemWebRTC
         private int AnnotationCounter;
         private int AnnotationThreshold;
 
+        ScaleTransform transformationHandler = new ScaleTransform();
+
         ///////////////// Variables for the socket communication
         private StreamSocketListener tcpVideoListener;
         private const string videoPort = "8900";
@@ -72,6 +74,8 @@ namespace MentorSystemWebRTC
         StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
         private bool connectionHappened = false;
         ///////////////////////
+
+        Point newPointInBackgroundImage;
 
         public MainPage()
         {
@@ -104,7 +108,8 @@ namespace MentorSystemWebRTC
             _mediaPlayer = new MediaPlayer();
             mediaPlayerElement.SetMediaPlayer(_mediaPlayer);
 
-            starWebrtcContext = StarWebrtcContext.CreateMentorContext();
+            //DECOMMENT
+            starWebrtcContext = StarWebrtcContext.CreateMentorContext(); 
             // right after creating the context (before starting the connections), we could edit some parameters such as the signalling server
 
             // comment these out if not needed
@@ -117,6 +122,13 @@ namespace MentorSystemWebRTC
             Messenger.AddListener(SympleLog.DestroyedMediaSource, OnDestroyedMediaSource);
 
             starWebrtcContext.initAndStartWebRTC();
+
+            mediaPlayerElement.ManipulationMode = ManipulationModes.Scale;
+
+            BackgroundImage.RenderTransform = transformationHandler;
+            mediaPlayerElement.RenderTransform = transformationHandler;
+            imagesPanel.RenderTransform = transformationHandler;
+            drawingPanel.RenderTransform = transformationHandler;
         }
 
         private void OnDestroyedMediaSource()
@@ -292,28 +304,29 @@ namespace MentorSystemWebRTC
             myController.SetSelectedIconPath(selectedUri.AbsoluteUri);
         }
 
-        private void LineStopped(object sender, PointerRoutedEventArgs e)
+        private void LineStarting(object sender, PointerRoutedEventArgs e)
         {
+            newPointInBackgroundImage = new Point(e.GetCurrentPoint(BackgroundImage).Position.X, e.GetCurrentPoint(BackgroundImage).Position.Y);
+
             if (buttonLines.IsChecked.Value)
             {
-                LineAnnotation.Name = AnnotationCounter.ToString();
-                drawingPanel.Children.Add(LineAnnotation);
-
-                // Prepare annotation to send
-                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
-
-                ResetLineAnnotation();
-                AnnotationCounter++;
+                if(LineAnnotation.Points.Count > 0)
+                {
+                    // Prepare annotation to send
+                    /*myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
+                    AnnotationCounter++;
+                    ResetLineAnnotation();*/               
+                }
             }
         }
 
         private void LineDrawing(object sender, PointerRoutedEventArgs e)
         {
-            if (buttonLines.IsChecked.Value)
+             if (buttonLines.IsChecked.Value)
             {
-                if(AnnotationThreshold%5==0)
+                if(AnnotationThreshold%10==0)
                 {
-                    LineAnnotation.Points.Add(new Point(e.GetCurrentPoint(imagesPanel).Position.X, e.GetCurrentPoint(imagesPanel).Position.Y));
+                    LineAnnotation.Points.Add(new Point(e.GetCurrentPoint(drawingPanel).Position.X, e.GetCurrentPoint(drawingPanel).Position.Y));
                 }
                 AnnotationThreshold++;
             }
@@ -321,8 +334,6 @@ namespace MentorSystemWebRTC
 
         private void imagesPanelTapped(object sender, TappedRoutedEventArgs e)
         {
-            //ColoredRectangle.Fill = tealColor;
-
             if (myController.GetIconAnnotationSelectedFlag())
             {
                 CreateIconAnnotation(e);
@@ -332,15 +343,14 @@ namespace MentorSystemWebRTC
             }
             else if (buttonPoints.IsChecked.Value)
             {
-                PreparePointAnnotation(e);
-                LineAnnotation.Name = AnnotationCounter.ToString();
-                drawingPanel.Children.Add(LineAnnotation);
-
-                // Prepare annotation to send
-                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
-
-                ResetLineAnnotation();
-                AnnotationCounter++;
+                if (LineAnnotation.Points.Count > 0)
+                {
+                    // Prepare annotation to send
+                    /*myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
+                    AnnotationCounter++;
+                    ResetLineAnnotation();*/
+                }
+                    PreparePointAnnotation(e.GetPosition(drawingPanel));
             }
         }
 
@@ -359,6 +369,7 @@ namespace MentorSystemWebRTC
         private void LinesButtonChecked(object sender, RoutedEventArgs e)
         {
             buttonLinesBorder.Background = buttonCheckedColor;
+            buttonPoints.IsChecked = false;
         }
 
         private void LinesButtonUnchecked(object sender, RoutedEventArgs e)
@@ -369,6 +380,7 @@ namespace MentorSystemWebRTC
         private void PointsButtonChecked(object sender, RoutedEventArgs e)
         {
             buttonPointsBorder.Background = buttonCheckedColor;
+            buttonLines.IsChecked = false;
         }
 
         private void PointsButtonUnchecked(object sender, RoutedEventArgs e)
@@ -385,8 +397,8 @@ namespace MentorSystemWebRTC
             }
             foreach (UIElement element in drawingPanel.Children)
             {
-                Polyline thisImage = element as Polyline;
-                myJsonManager.createJSONable(Int32.Parse(thisImage.Name), "DeleteAnnotationCommand", null, null, null);
+                Polyline thisLine = element as Polyline;
+                myJsonManager.createJSONable(Int32.Parse(thisLine.Name), "DeleteAnnotationCommand", null, null, null);
             }
 
             imagesPanel.Children.Clear();
@@ -445,6 +457,7 @@ namespace MentorSystemWebRTC
 
             // Touch manipulation handlers for the line
             LineAnnotation = new Polyline();
+            LineAnnotation.Name = AnnotationCounter.ToString();
             LineAnnotation.Stroke = new SolidColorBrush(Windows.UI.Colors.Aquamarine);
             LineAnnotation.StrokeThickness = 7;
             LineAnnotation.HorizontalAlignment = HorizontalAlignment.Left;
@@ -456,6 +469,8 @@ namespace MentorSystemWebRTC
             LineAnnotation.ManipulationCompleted += IconImage_ManipulationCompleted;
             LineAnnotation.ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.TranslateY;
             LineAnnotation.RenderTransform = new CompositeTransform();
+
+            drawingPanel.Children.Add(LineAnnotation);
         }
 
         private async void deleteTempFiles()
@@ -484,6 +499,11 @@ namespace MentorSystemWebRTC
 
         private void IconImage_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
+            buttonLines.IsChecked = false;
+            buttonPoints.IsChecked = false;
+            LinesButtonUnchecked(sender, e);
+            PointsButtonUnchecked(sender, e);
+
             /*dynamic contextualizedObject = Convert.ChangeType(sender, sender.GetType());
             contextualizedObject.Opacity = 0.4;*/
             if ("Windows.UI.Xaml.Controls.Image" == sender.GetType().ToString())
@@ -518,8 +538,8 @@ namespace MentorSystemWebRTC
             myTransform.Rotation += e.Delta.Rotation;
             myTransform.ScaleX *= e.Delta.Scale;
             myTransform.ScaleY *= e.Delta.Scale;
-            myTransform.TranslateX += e.Delta.Translation.X;
-            myTransform.TranslateY += e.Delta.Translation.Y;
+            myTransform.TranslateX += e.Delta.Translation.X / transformationHandler.ScaleX;
+            myTransform.TranslateY += e.Delta.Translation.Y / transformationHandler.ScaleY;
         }
 
         /*
@@ -551,7 +571,7 @@ namespace MentorSystemWebRTC
                 else
                 {
                     // get the current position of the object
-                    var ttv = selectedElement.TransformToVisual(Window.Current.Content);
+                    var ttv = selectedElement.TransformToVisual(imagesPanel);
                     Point screenCoords = ttv.TransformPoint(new Point(0, 0));
 
                     // Creates the information for the JSON
@@ -583,8 +603,9 @@ namespace MentorSystemWebRTC
                 }
                 else
                 {
-                    var ttv = selectedElement.TransformToVisual(Window.Current.Content);
+                    var ttv = selectedElement.TransformToVisual(drawingPanel);
                     Point screenCoords = ttv.TransformPoint(new Point(0, 0));
+
 
                     myJsonManager.createJSONable(Int32.Parse(selectedElement.Name), "UpdateAnnotationCommand", getPointsFromLine(selectedElement.Points.ToArray(), screenCoords), null, null);
                 }
@@ -630,7 +651,7 @@ namespace MentorSystemWebRTC
 
             return pointsToJSON;
         }
-
+        
         private void JsonThread()
         {
             myJsonManager.constructGeneralJSON();
@@ -681,12 +702,12 @@ namespace MentorSystemWebRTC
             AnnotationCounter++;
         }
 
-        /*
+         /*
          * Method Overview: Given a tapped event position, create a circle around it
          * Parameters: Tapped event
          * Return: None
          */
-        private void PreparePointAnnotation(TappedRoutedEventArgs e)
+        private void PreparePointAnnotation(Point e)
         {
             double initial_point_distance = 5.0;
             double angle;
@@ -709,7 +730,34 @@ namespace MentorSystemWebRTC
                 double transfY = ((senComponent) + (cosComponent));
 
                 //assigns the results
-                LineAnnotation.Points.Add(new Point((transfX) + (e.GetPosition(imagesPanel).X), (transfY) + (e.GetPosition(imagesPanel).Y)));
+                LineAnnotation.Points.Add(new Point((transfX) + (e.X), (transfY) + (e.Y)));
+            }
+        }
+
+        private void ZoomBackgroundImage(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            transformationHandler.CenterX = newPointInBackgroundImage.X;
+            transformationHandler.CenterY = newPointInBackgroundImage.Y;
+
+            if (transformationHandler.ScaleX * e.Delta.Scale < 1.0)
+            {
+                transformationHandler.ScaleX = 1.0;
+                transformationHandler.ScaleY = 1.0;
+            }
+            else
+            {
+                transformationHandler.ScaleX *= e.Delta.Scale;
+                transformationHandler.ScaleY *= e.Delta.Scale;
+            }
+        }
+
+        private void FingerLeft(object sender, PointerRoutedEventArgs e)
+        {
+            if(buttonLines.IsChecked.Value || buttonPoints.IsChecked.Value)
+            {
+                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
+                AnnotationCounter++;
+                ResetLineAnnotation();
             }
         }
     }

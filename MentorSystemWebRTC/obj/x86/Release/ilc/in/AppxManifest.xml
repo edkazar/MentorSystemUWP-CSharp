@@ -41,32 +41,32 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>Org.WebRtc.dll</Path>
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelMessageEvent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.FrameCounterHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.CodecInfo" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.FirstFrameRenderHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.Media" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.ResolutionHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCSessionDescription" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.CaptureCapability" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnection" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnectionIceStateChangeEvent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnectionIceEvent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCIceCandidate" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCStatsReportsReadyEvent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCMediaStreamConstraints" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCStatsReport" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.BinaryDataChannelMessage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCIceServer" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelInit" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.MediaDevice" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Org.WebRtc.MediaStreamEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelInit" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnectionHealthStats" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.StringDataChannelMessage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCConfiguration" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.WinJSHooks" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.CaptureCapability" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.CodecInfo" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Org.WebRtc.WebRTC" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCIceCandidate" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelMessageEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnectionIceEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCMediaStreamConstraints" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCStatsReportsReadyEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.Media" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCIceServer" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCDataChannelEvent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.ResolutionHelper" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.BinaryDataChannelMessage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.FrameCounterHelper" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.StringDataChannelMessage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.FirstFrameRenderHelper" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnection" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCConfiguration" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.MediaDevice" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.WinJSHooks" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCStatsReport" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCSessionDescription" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Org.WebRtc.RTCPeerConnectionIceStateChangeEvent" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>
@@ -74,7 +74,7 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="15.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
-    <build:Item Name="OperatingSystem" Version="10.0.15063.0 (WinBuild.160101.0800)" />
+    <build:Item Name="OperatingSystem" Version="10.0.16299.15 (WinBuild.160101.0800)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.26419.1" />
     <build:Item Name="ProjectGUID" Value="{CBF8797C-4F29-48C1-B714-B2E5F7D4A434}" />
     <build:Item Name="ilc.exe" Version="1.4.24211.00 built by: PROJECTNGDR2" />
