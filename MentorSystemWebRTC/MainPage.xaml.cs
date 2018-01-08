@@ -120,6 +120,8 @@ namespace MentorSystemWebRTC
 
             Messenger.AddListener<IMediaSource>(SympleLog.CreatedMediaSource, OnCreatedMediaSource);
             Messenger.AddListener(SympleLog.DestroyedMediaSource, OnDestroyedMediaSource);
+            Messenger.AddListener(SympleLog.RemoteAnnotationReceiverConnected, OnRemoteAnnotationReceiverConnected);
+            Messenger.AddListener(SympleLog.RemoteAnnotationReceiverDisconnected, OnRemoteAnnotationReceiverDisconnected);
 
             starWebrtcContext.initAndStartWebRTC();
 
@@ -129,6 +131,8 @@ namespace MentorSystemWebRTC
             mediaPlayerElement.RenderTransform = transformationHandler;
             imagesPanel.RenderTransform = transformationHandler;
             drawingPanel.RenderTransform = transformationHandler;
+
+            myJsonManager.starWebrtcContext = starWebrtcContext;
         }
 
         private void OnDestroyedMediaSource()
@@ -181,6 +185,26 @@ namespace MentorSystemWebRTC
 
         }
 
+        private void OnRemoteAnnotationReceiverConnected()
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                myJsonManager.JSONThroughWebRTC = true;
+            }
+            );
+        }
+
+        private void OnRemoteAnnotationReceiverDisconnected()
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                myJsonManager.JSONThroughWebRTC = false;
+            }
+            );
+        }
+
         /*private async void button_Click(object sender, RoutedEventArgs e)
         {
             buttonWebRTC.IsEnabled = false;
@@ -194,10 +218,10 @@ namespace MentorSystemWebRTC
             connectionHappened = true;
             DataReader reader = new DataReader(args.Socket.InputStream);
             uint tabletResX = 640;
-            uint tabletResY = 400;
+            uint tabletResY = 400;//400 for tablet //480 for drone
             uint orgNumChan = 3;
             uint targetNumChan = 4;
-            uint orgRes = tabletResX * tabletResY * orgNumChan;
+            uint orgRes = tabletResX * tabletResY * orgNumChan; 
             uint targetRes = tabletResX * tabletResY * targetNumChan;
             byte[] myInfo = new byte[orgRes];
             int deletionCntr = 0;
@@ -206,7 +230,6 @@ namespace MentorSystemWebRTC
             {
                 while (true)
                 {
-
                     // Read first 4 bytes (length of the subsequent string).
                     uint sizeFieldCount = await reader.LoadAsync(sizeof(byte) * orgRes);
                     if (sizeFieldCount != sizeof(byte) * orgRes)
@@ -379,6 +402,7 @@ namespace MentorSystemWebRTC
 
         private void PointsButtonChecked(object sender, RoutedEventArgs e)
         {
+            //Debug.WriteLine(ApplicationData.Current.LocalFolder.Path);
             buttonPointsBorder.Background = buttonCheckedColor;
             buttonLines.IsChecked = false;
         }

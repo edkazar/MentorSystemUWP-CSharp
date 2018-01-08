@@ -13548,12 +13548,10 @@
       ]
     },
     "SocketIoClientDotNet/0.9.13": {
-      "sha512": "0U1gOjIYNLLeEabCinglXOeY7QyVPMmvE6DRtHgwhq2H8zglPUXIpbbG74FmRVZhDA8ryATpArTeHcT/CP6xXA==",
+      "sha512": "D1LU/QqOpKcovh8RPilFLZxziGTJqKWeIHyw7bF3eRgZfdvvD9gKvGZ0fkzOS/FV3+cXFUYMM0HciKBE0I4W/A==",
       "type": "package",
       "path": "socketioclientdotnet/0.9.13",
       "files": [
-        "SocketIOClientDotNet.0.9.13.nupkg.sha512",
-        "SocketIOClientDotNet.nuspec",
         "lib/monoandroid10/SocketIoClientDotNet.dll",
         "lib/monotouch10/SocketIoClientDotNet.dll",
         "lib/net35/SocketIoClientDotNet.dll",
@@ -13563,7 +13561,9 @@
         "lib/portable-win81+wpa81/SocketIoClientDotNet.dll",
         "lib/portable-wpa81+wp81/SocketIoClientDotNet.dll",
         "lib/windowsphone8/SocketIoClientDotNet.dll",
-        "lib/xamarinios10/SocketIoClientDotNet.dll"
+        "lib/xamarinios10/SocketIoClientDotNet.dll",
+        "socketioclientdotnet.0.9.13.nupkg.sha512",
+        "socketioclientdotnet.nuspec"
       ]
     },
     "System.AppContext/4.0.0": {

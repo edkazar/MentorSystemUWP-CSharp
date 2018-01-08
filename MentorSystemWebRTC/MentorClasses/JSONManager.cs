@@ -28,6 +28,9 @@ using System.Linq;
 using Windows.Data.Json;
 using Windows.Storage;
 using Windows.Networking.Sockets;
+using WSAUnity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MentorSystemWebRTC.MentorClasses
 {
@@ -61,6 +64,12 @@ namespace MentorSystemWebRTC.MentorClasses
 
         // Socket to send the JSON info
         private StreamSocket JsonSocket;
+
+        // Instance of the STAR WebRTC Handler
+        public StarWebrtcContext starWebrtcContext { get; set; }
+
+        // Instance of the STAR WebRTC Handler
+        public Boolean JSONThroughWebRTC { get; set; } = false;
 
         /*
          * Method Overview: Constructor of the class
@@ -149,31 +158,36 @@ namespace MentorSystemWebRTC.MentorClasses
          * Return: None
          */
         private void constructLineJSONMessage(int id, string command, List<double> myPoints)
-        {            
-            JsonObject message = new JsonObject();
+        {
+            JObject message = new JObject();
+            JObject annotation_memory = new JObject();
+            JObject initialAnnotation = new JObject();
+            JArray annotationPoints = new JArray();
+
+            /*JsonObject message = new JsonObject();
             JsonObject annotation_memory = new JsonObject();
             JsonObject initialAnnotation = new JsonObject();
-            JsonArray annotationPoints = new JsonArray();
+            JsonArray annotationPoints = new JsonArray();*/
 
-            message.SetNamedValue("id", JsonValue.CreateNumberValue(id));
-            message.SetNamedValue("command", JsonValue.CreateStringValue(command));
+            message["id"] = id;
+            message["command"] = command;
 
             int counter;
             
             for (counter = 0; counter < myPoints.Count(); counter = counter + 2)
             {
-                JsonObject newPointAnnotation = new JsonObject();
-                newPointAnnotation.SetNamedValue("x", JsonValue.CreateNumberValue(myPoints.ElementAt(counter) / RESOLUTION_X));
-                newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(myPoints.ElementAt(counter + 1) / RESOLUTION_Y));
+                JObject newPointAnnotation = new JObject();
+                newPointAnnotation["x"] = Math.Round(myPoints.ElementAt(counter) / RESOLUTION_X, 4);
+                newPointAnnotation["y"] = Math.Round(myPoints.ElementAt(counter + 1) / RESOLUTION_Y, 4);
                 annotationPoints.Add(newPointAnnotation);
             }
             initialAnnotation.Add("annotationPoints", annotationPoints);
 
-            initialAnnotation.SetNamedValue("annotationType", JsonValue.CreateStringValue(POLYLINE_ANNOTATION));
+            initialAnnotation["annotationType"] = POLYLINE_ANNOTATION;
 
-            annotation_memory.SetNamedValue("annotation", initialAnnotation);
+            annotation_memory["annotation"] = initialAnnotation;
 
-            message.SetNamedValue("annotation_memory", annotation_memory);
+            message["annotation_memory"] = annotation_memory;
 
             //Writes JSON Value to a file
             writeJSONonFile(message);
@@ -194,8 +208,32 @@ namespace MentorSystemWebRTC.MentorClasses
              * annotation_information[2] = annotation rotation value
              * annotation_information[3] = annotation zoom value
              */
+            JObject message = new JObject();
+            JObject annotation_memory = new JObject();
+            JObject initialAnnotation = new JObject();
+            JArray annotationPoints = new JArray();
 
-            JsonObject message = new JsonObject();
+            message["id"] = id;
+            message["command"] = command;
+
+            JObject newPointAnnotation = new JObject();
+            newPointAnnotation["x"] = Math.Round(annotation_information[0] / RESOLUTION_X, 4);
+            newPointAnnotation["y"] = Math.Round(annotation_information[1] / RESOLUTION_Y, 4);
+            annotationPoints.Add(newPointAnnotation);
+            initialAnnotation.Add("annotationPoints", annotationPoints);
+
+            initialAnnotation["rotation"] = Math.Round(-1 * (annotation_information[2] + 45), 4);
+            initialAnnotation["scale"] = Math.Round(annotation_information[3] * 0.09f, 4);
+            initialAnnotation["annotationType"] = ICON_ANNOTATION;
+            initialAnnotation["toolType"] = annotation_name;
+            initialAnnotation["selectableColor"] = 0;
+
+            annotation_memory["annotation"] = initialAnnotation;
+
+            message["annotation_memory"] = annotation_memory;
+
+            //Older protocol
+            /*JsonObject message = new JsonObject();
             JsonObject annotation_memory = new JsonObject();
             JsonObject initialAnnotation = new JsonObject();
             JsonArray annotationPoints = new JsonArray();
@@ -204,20 +242,20 @@ namespace MentorSystemWebRTC.MentorClasses
             message.SetNamedValue("command", JsonValue.CreateStringValue(command));
 
             JsonObject newPointAnnotation = new JsonObject();
-            newPointAnnotation.SetNamedValue("x", JsonValue.CreateNumberValue(annotation_information[0] / RESOLUTION_X));
-            newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(annotation_information[1] / RESOLUTION_Y));
+            newPointAnnotation.SetNamedValue("x", JsonValue.CreateNumberValue(Math.Round(annotation_information[0] / RESOLUTION_X, 4)));
+            newPointAnnotation.SetNamedValue("y", JsonValue.CreateNumberValue(Math.Round(annotation_information[1] / RESOLUTION_Y, 4)));
             annotationPoints.Add(newPointAnnotation);
             initialAnnotation.Add("annotationPoints", annotationPoints);
 
-            initialAnnotation.SetNamedValue("rotation", JsonValue.CreateNumberValue(-1 * (annotation_information[2]+45)));
-            initialAnnotation.SetNamedValue("scale", JsonValue.CreateNumberValue(annotation_information[3]*0.09f));
+            initialAnnotation.SetNamedValue("rotation", JsonValue.CreateNumberValue(Math.Round(-1 * (annotation_information[2]+45), 4)));
+            initialAnnotation.SetNamedValue("scale", JsonValue.CreateNumberValue(Math.Round(annotation_information[3]*0.09f, 4)));
             initialAnnotation.SetNamedValue("annotationType", JsonValue.CreateStringValue(ICON_ANNOTATION));
             initialAnnotation.SetNamedValue("toolType", JsonValue.CreateStringValue(annotation_name));
             initialAnnotation.SetNamedValue("selectableColor", JsonValue.CreateNumberValue(0));
 
             annotation_memory.SetNamedValue("annotation", initialAnnotation);
 
-            message.SetNamedValue("annotation_memory", annotation_memory);
+            message.SetNamedValue("annotation_memory", annotation_memory);*/
 
             //Writes JSON Value to a file
             writeJSONonFile(message);
@@ -230,10 +268,10 @@ namespace MentorSystemWebRTC.MentorClasses
          */
         void constructDeleteJSONMessage(int id, string command)
         {
-            JsonObject message = new JsonObject();
+            JObject message = new JObject();
 
-            message.SetNamedValue("id", JsonValue.CreateNumberValue(id));
-            message.SetNamedValue("command", JsonValue.CreateStringValue(command));
+            message["id"] = id;
+            message["command"] = command;
 
             //Writes JSON Value to a file
             writeJSONonFile(message);
@@ -244,16 +282,39 @@ namespace MentorSystemWebRTC.MentorClasses
          * Parameters: JSON Value to write
          * Return: None
          */
-        private async void writeJSONonFile(JsonObject to_text)
+
+        /*private async void writeJSONonFile(JsonObject to_text)
         {
             // Create sample file; replace if exists.
             StorageFolder rootFolder = ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await rootFolder.CreateFileAsync("json.txt", CreationCollisionOption.ReplaceExisting);
-            string string_to_send = to_text.Stringify();
+            string string_to_send = to_text.ToString();
             await FileIO.WriteTextAsync(sampleFile, string_to_send);
 
             //Starts the process of sending the value over the network
             JSONtoNetwork(string_to_send);
+
+            //starWebrtcContext.sendMessageToAnnotationReceiver(to_text);
+        }*/
+
+        private async void writeJSONonFile(JObject to_text)
+        {
+            // Create sample file; replace if exists.
+            StorageFolder rootFolder = ApplicationData.Current.LocalFolder;  
+            StorageFile sampleFile = await rootFolder.CreateFileAsync("json.txt", CreationCollisionOption.ReplaceExisting);
+            string string_to_send = JsonConvert.SerializeObject(to_text, Formatting.None);
+            await FileIO.WriteTextAsync(sampleFile, string_to_send);
+
+            if(JSONThroughWebRTC)
+            {
+                //Starts the process of sending the JSON value over WebRTC
+                starWebrtcContext.sendMessageToAnnotationReceiver(to_text);
+            }
+            else
+            {
+                //Starts the process of sending the JSON value over TCP/IP
+                JSONtoNetwork(string_to_send);
+            }
         }
 
         /*
