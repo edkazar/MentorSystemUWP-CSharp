@@ -30,6 +30,7 @@ using Windows.Storage;
 using Windows.Networking.Sockets;
 using WSAUnity;
 using Newtonsoft.Json;
+using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 
 namespace MentorSystemWebRTC.MentorClasses
@@ -107,6 +108,7 @@ namespace MentorSystemWebRTC.MentorClasses
                             }
                             else
                             {
+                                Debug.WriteLine("Inside jsonable loop");
                                 constructIconAnnotationJSONMessage(to_create.id, to_create.command, to_create.annotation_name, to_create.annotation_information);
                             }
                         }
@@ -258,6 +260,7 @@ namespace MentorSystemWebRTC.MentorClasses
             message.SetNamedValue("annotation_memory", annotation_memory);*/
 
             //Writes JSON Value to a file
+            Debug.WriteLine("writing JSON");
             writeJSONonFile(message);
         }
 
@@ -307,8 +310,12 @@ namespace MentorSystemWebRTC.MentorClasses
 
             if(JSONThroughWebRTC)
             {
+                Debug.WriteLine("sending JSON");
                 //Starts the process of sending the JSON value over WebRTC
                 starWebrtcContext.sendMessageToAnnotationReceiver(to_text);
+
+                //Let the CommanderCenter know that the message was sent
+                isJsonBeingCreated = false;
             }
             else
             {

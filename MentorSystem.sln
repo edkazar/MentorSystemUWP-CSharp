@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorSystem", "MentorSystem\MentorSystem.csproj", "{43A2E289-67E2-491E-A36C-3361996D5F4F}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSAStub", "WSAStub\WSAStub.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentorSystemWebRTC", "MentorSystemWebRTC\MentorSystemWebRTC.csproj", "{CBF8797C-4F29-48C1-B714-B2E5F7D4A434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSAUnity", "..\..\..\GitHub\DanWebRTC\WSAUnity\WSAUnity\WSAUnity.csproj", "{5635CF03-FD91-43F0-B839-94D9E9F7816E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSAUnity", "..\..\..\WebRTC\WSAUnity\WSAUnity\WSAUnity.csproj", "{5635CF03-FD91-43F0-B839-94D9E9F7816E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

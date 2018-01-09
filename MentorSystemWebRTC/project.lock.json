@@ -16275,8 +16275,8 @@
     },
     "WSAUnity/1.0.0": {
       "type": "project",
-      "path": "../../../../GitHub/DanWebRTC/WSAUnity/WSAUnity/project.json",
-      "msbuildProject": "../../../../GitHub/DanWebRTC/WSAUnity/WSAUnity/WSAUnity.csproj"
+      "path": "../../../../WebRTC/WSAUnity/WSAUnity/project.json",
+      "msbuildProject": "../../../../WebRTC/WSAUnity/WSAUnity/WSAUnity.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -16287,20 +16287,20 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\M2M ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\edkaz\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystemWebRTC\\MentorSystemWebRTC.csproj",
+      "projectUniqueName": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystemWebRTC\\MentorSystemWebRTC.csproj",
       "projectName": "MentorSystemWebRTC",
-      "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystemWebRTC\\MentorSystemWebRTC.csproj",
-      "projectJsonPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystemWebRTC\\project.json",
+      "projectPath": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystemWebRTC\\MentorSystemWebRTC.csproj",
+      "projectJsonPath": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystemWebRTC\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\Users\\M2M ADMIN\\documents\\GitHub\\DanWebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj": {
-              "projectPath": "C:\\Users\\M2M ADMIN\\documents\\GitHub\\DanWebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj"
+            "C:\\Users\\edkaz\\Documents\\WebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj": {
+              "projectPath": "C:\\Users\\edkaz\\Documents\\WebRTC\\WSAUnity\\WSAUnity\\WSAUnity.csproj"
             }
           }
         }

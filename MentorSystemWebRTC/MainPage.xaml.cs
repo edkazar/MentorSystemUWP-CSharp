@@ -190,6 +190,7 @@ namespace MentorSystemWebRTC
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
             {
+                Debug.WriteLine("Connected");
                 myJsonManager.JSONThroughWebRTC = true;
             }
             );
@@ -779,9 +780,14 @@ namespace MentorSystemWebRTC
         {
             if(buttonLines.IsChecked.Value || buttonPoints.IsChecked.Value)
             {
-                myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
-                AnnotationCounter++;
-                ResetLineAnnotation();
+                Debug.WriteLine(AnnotationCounter);
+                if (LineAnnotation.Points.Count > 0)
+                {
+                    Debug.WriteLine("Creating line");
+                    myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
+                    AnnotationCounter++;
+                    ResetLineAnnotation();
+                }   
             }
         }
     }

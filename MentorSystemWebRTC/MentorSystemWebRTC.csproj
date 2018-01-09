@@ -161,7 +161,7 @@
     <Folder Include="JSON_Files\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\GitHub\DanWebRTC\WSAUnity\WSAUnity\WSAUnity.csproj">
+    <ProjectReference Include="..\..\..\..\WebRTC\WSAUnity\WSAUnity\WSAUnity.csproj">
       <Project>{5635cf03-fd91-43f0-b839-94d9e9f7816e}</Project>
       <Name>WSAUnity</Name>
     </ProjectReference>

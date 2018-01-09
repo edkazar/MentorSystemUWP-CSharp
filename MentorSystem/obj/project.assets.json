@@ -22010,15 +22010,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M2M ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\edkaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
+      "projectUniqueName": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystem\\MentorSystem.csproj",
       "projectName": "MentorSystem",
-      "projectPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\MentorSystem.csproj",
-      "outputPath": "C:\\Users\\M2M ADMIN\\documents\\visual studio 2017\\Projects\\MentorSystem\\MentorSystem\\obj\\",
+      "projectPath": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystem\\MentorSystem.csproj",
+      "outputPath": "C:\\Users\\edkaz\\Documents\\Visual Studio 2017\\Projects\\MentorSystemWebRTC\\MentorSystem\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "uap10.0.15063"
