@@ -215,7 +215,6 @@ namespace MentorSystemWebRTC
 
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            Debug.WriteLine("Got Connected");
             connectionHappened = true;
             DataReader reader = new DataReader(args.Socket.InputStream);
             uint tabletResX = 640;
@@ -295,7 +294,6 @@ namespace MentorSystemWebRTC
 
         private async void jsonOnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            Debug.WriteLine("Also entered here");
             myJsonManager.receiveSocket(args.Socket);
         }
 
@@ -780,10 +778,8 @@ namespace MentorSystemWebRTC
         {
             if(buttonLines.IsChecked.Value || buttonPoints.IsChecked.Value)
             {
-                Debug.WriteLine(AnnotationCounter);
                 if (LineAnnotation.Points.Count > 0)
                 {
-                    Debug.WriteLine("Creating line");
                     myJsonManager.createJSONable(AnnotationCounter, "CreateAnnotationCommand", getPointsFromLine(LineAnnotation.Points.ToArray(), null), null, null);
                     AnnotationCounter++;
                     ResetLineAnnotation();
