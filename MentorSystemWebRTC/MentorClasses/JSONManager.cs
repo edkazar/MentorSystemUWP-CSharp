@@ -72,6 +72,9 @@ namespace MentorSystemWebRTC.MentorClasses
         // Instance of the STAR WebRTC Handler
         public Boolean JSONThroughWebRTC { get; set; } = false;
 
+        // Temp json files that have been sent
+        private Queue<JObject> sentJSONs;
+
         /*
          * Method Overview: Constructor of the class
          * Parameters: None
@@ -81,6 +84,7 @@ namespace MentorSystemWebRTC.MentorClasses
         {
             JSONs_to_create = new Queue<JSONable>();
             isJsonBeingCreated = false;
+            sentJSONs = new Queue<JObject>();
         }
 
         /*
@@ -108,7 +112,6 @@ namespace MentorSystemWebRTC.MentorClasses
                             }
                             else
                             {
-                                Debug.WriteLine("Inside jsonable loop");
                                 constructIconAnnotationJSONMessage(to_create.id, to_create.command, to_create.annotation_name, to_create.annotation_information);
                             }
                         }
@@ -192,6 +195,7 @@ namespace MentorSystemWebRTC.MentorClasses
             message["annotation_memory"] = annotation_memory;
 
             //Writes JSON Value to a file
+            sentJSONs.Enqueue(message);
             writeJSONonFile(message);
         }
 
@@ -260,7 +264,7 @@ namespace MentorSystemWebRTC.MentorClasses
             message.SetNamedValue("annotation_memory", annotation_memory);*/
 
             //Writes JSON Value to a file
-            Debug.WriteLine("writing JSON");
+            sentJSONs.Enqueue(message);
             writeJSONonFile(message);
         }
 
@@ -277,6 +281,7 @@ namespace MentorSystemWebRTC.MentorClasses
             message["command"] = command;
 
             //Writes JSON Value to a file
+            sentJSONs.Enqueue(message);
             writeJSONonFile(message);
         }
 
@@ -310,7 +315,6 @@ namespace MentorSystemWebRTC.MentorClasses
 
             if(JSONThroughWebRTC)
             {
-                Debug.WriteLine("sending JSON");
                 //Starts the process of sending the JSON value over WebRTC
                 starWebrtcContext.sendMessageToAnnotationReceiver(to_text);
 
@@ -367,6 +371,34 @@ namespace MentorSystemWebRTC.MentorClasses
             writer.Flush();
             stream.Position = 0;
             return stream;
+        }
+
+        /*
+         * Method Overview: Sends again all the JSON objects stores so far
+         * Parameters: None
+         * Return: None
+         */
+        public void resendJSON()
+        {
+            if (JSONThroughWebRTC)
+            {
+                while (sentJSONs.Count > 0)
+                {
+                    //Starts the process of sending the JSON value over WebRTC
+                    starWebrtcContext.sendMessageToAnnotationReceiver(sentJSONs.Dequeue());
+                }
+                
+            }
+        }
+
+        /*
+         * Method Overview: Cleans the accumulated Json queue
+         * Parameters: None
+         * Return: None
+         */
+        public void cleanJsonQueue()
+        {
+            sentJSONs.Clear();
         }
     }
 }

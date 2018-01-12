@@ -123,6 +123,9 @@ namespace MentorSystemWebRTC
             Messenger.AddListener(SympleLog.RemoteAnnotationReceiverConnected, OnRemoteAnnotationReceiverConnected);
             Messenger.AddListener(SympleLog.RemoteAnnotationReceiverDisconnected, OnRemoteAnnotationReceiverDisconnected);
 
+            Messenger.AddListener<string>(SympleLog.PeerAdded, OnPeerAdded);
+            Messenger.AddListener<string>(SympleLog.PeerRemoved, OnPeerRemoved);
+
             starWebrtcContext.initAndStartWebRTC();
 
             mediaPlayerElement.ManipulationMode = ManipulationModes.Scale;
@@ -165,6 +168,9 @@ namespace MentorSystemWebRTC
 
                 _mediaPlayer.Source = createdSource;
                 _mediaPlayer.Play();
+                StatusButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/GreenLight.png"));
+                ConnectionStatus.Text = "Connected";
+
             }
             );
 
@@ -206,12 +212,42 @@ namespace MentorSystemWebRTC
             );
         }
 
-        /*private async void button_Click(object sender, RoutedEventArgs e)
+        private void OnPeerAdded(string addedPeerUsername)
         {
-            buttonWebRTC.IsEnabled = false;
+            /*string logMessage = "=== OnPeerAdded: " + addedPeerUsername + " ===";
+            Messenger.Broadcast(SympleLog.LogDebug, logMessage);*/
 
-            starWebrtcContext.initAndStartWebRTC();
-        }*/
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                if(addedPeerUsername=="star-trainee")
+            {
+                    buttonSendAllBorder.Visibility = Visibility.Collapsed;
+                    StatusButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/YellowLight.png"));
+                    ConnectionStatus.Text = "Connecting";
+                    
+            }
+            }
+            );
+
+        }
+
+        private void OnPeerRemoved(string removedPeerUsername)
+        {
+            /*string logMessage = "=== OnPeerRemoved: " + removedPeerUsername + " ===";
+            Messenger.Broadcast(SympleLog.LogDebug, logMessage);*/
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                if (removedPeerUsername == "star-trainee")
+                {
+                    buttonSendAllBorder.Visibility = Visibility.Visible;
+                    StatusButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/RedLight.png"));
+                    ConnectionStatus.Text = "Disconnected";
+                }
+            }
+            );
+        }
 
         private async void OnConnected(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
@@ -321,6 +357,7 @@ namespace MentorSystemWebRTC
             Image selectedImage = sender as Image;
             BitmapImage selectedSource = selectedImage.Source as BitmapImage;
             Uri selectedUri = selectedSource.UriSource;
+            greetingOutput.Text = selectedUri.AbsoluteUri.ToString();
 
             myController.SetIconAnnotationSelectedFlag(true);
             myController.SetSelectedIconPath(selectedUri.AbsoluteUri);
@@ -426,6 +463,7 @@ namespace MentorSystemWebRTC
 
             imagesPanel.Children.Clear();
             drawingPanel.Children.Clear();
+            myJsonManager.cleanJsonQueue();
         }
 
         private async void ExitButtonClicked(object sender, RoutedEventArgs e)
@@ -776,6 +814,11 @@ namespace MentorSystemWebRTC
 
         private void FingerLeft(object sender, PointerRoutedEventArgs e)
         {
+            if(buttonSendAllBorder.Visibility == Visibility.Visible)
+            {
+                buttonSendAllBorder.Visibility = Visibility.Collapsed;
+            }
+
             if(buttonLines.IsChecked.Value || buttonPoints.IsChecked.Value)
             {
                 if (LineAnnotation.Points.Count > 0)
@@ -785,6 +828,11 @@ namespace MentorSystemWebRTC
                     ResetLineAnnotation();
                 }   
             }
+        }
+
+        private void SendAllButtonClicked(object sender, RoutedEventArgs e)
+        {
+            myJsonManager.resendJSON();
         }
     }
 }

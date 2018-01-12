@@ -112,6 +112,7 @@
     <Content Include="Assets\bvm.png" />
     <Content Include="Assets\DroneView2.mp4" />
     <Content Include="Assets\ettube.png" />
+    <Content Include="Assets\GreenLight.png" />
     <Content Include="Assets\hand_palpate.png" />
     <Content Include="Assets\hand_point.png" />
     <Content Include="Assets\hand_stretch.png" />
@@ -119,6 +120,7 @@
     <Content Include="Assets\iodineswab.png" />
     <Content Include="Assets\longhook.png" />
     <Content Include="Assets\operating_room.jpg" />
+    <Content Include="Assets\RedLight.png" />
     <Content Include="Assets\retractor.png" />
     <Content Include="Assets\scalpel.png" />
     <Content Include="Assets\scissors.png" />
@@ -138,6 +140,7 @@
     <Content Include="Assets\trash_bin_closed.png" />
     <Content Include="Assets\trash_bin_open.png" />
     <Content Include="Assets\tweezers.png" />
+    <Content Include="Assets\YellowLight.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

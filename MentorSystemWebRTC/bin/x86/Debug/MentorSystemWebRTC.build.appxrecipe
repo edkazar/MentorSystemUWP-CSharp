@@ -367,6 +367,9 @@
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\ettube.png">
       <PackagePath>Assets\ettube.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\GreenLight.png">
+      <PackagePath>Assets\GreenLight.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\hand_palpate.png">
       <PackagePath>Assets\hand_palpate.png</PackagePath>
     </AppxPackagedFile>
@@ -384,6 +387,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\longhook.png">
       <PackagePath>Assets\longhook.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\RedLight.png">
+      <PackagePath>Assets\RedLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\retractor.png">
       <PackagePath>Assets\retractor.png</PackagePath>
@@ -446,6 +452,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\tweezers.png">
       <PackagePath>Assets\tweezers.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\YellowLight.png">
+      <PackagePath>Assets\YellowLight.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\edkaz\Documents\Visual Studio 2017\Projects\MentorSystemWebRTC\MentorSystemWebRTC\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

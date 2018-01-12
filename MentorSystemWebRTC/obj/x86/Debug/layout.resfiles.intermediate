@@ -2,6 +2,7 @@ WinMetadata\Windows.winmd
 Assets\bvm.png
 Assets\DroneView2.mp4
 Assets\ettube.png
+Assets\GreenLight.png
 Assets\hand_palpate.png
 Assets\hand_point.png
 Assets\hand_stretch.png
@@ -10,6 +11,7 @@ Assets\iodineswab.png
 Assets\LockScreenLogo.scale-200.png
 Assets\longhook.png
 Assets\operating_room.jpg
+Assets\RedLight.png
 Assets\retractor.png
 Assets\scalpel.png
 Assets\scissors.png
@@ -35,5 +37,6 @@ Assets\trash_bin_closed.png
 Assets\trash_bin_open.png
 Assets\tweezers.png
 Assets\Wide310x150Logo.scale-200.png
+Assets\YellowLight.png
 MentorSystemWebRTC.xr.xml
 Properties\Default.rd.xml
